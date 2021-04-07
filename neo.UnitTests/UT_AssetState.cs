@@ -1,14 +1,14 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
+using Cron.Cryptography.ECC;
+using Cron.IO;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
 using System.Globalization;
 using System.IO;
 using System.Text;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     [TestClass]
     public class UT_AssetState
@@ -58,7 +58,7 @@ namespace Neo.UnitTests
         [TestMethod]
         public void Name_Set()
         {
-            string val = "wake up neo";
+            string val = "wake up cron";
             uut.Name = val;
             uut.Name.Should().Be(val);
         }
@@ -215,7 +215,7 @@ namespace Neo.UnitTests
             assetType = AssetType.Token;
             assetState.AssetType = assetType;
 
-            name = "neo";
+            name = "cron";
             assetState.Name = name;
 
             amount = new Fixed8(42);
@@ -415,7 +415,7 @@ namespace Neo.UnitTests
             bool isFrozen;
             setupAssetStateWithValues(uut, out assetId, out assetType, out name, out amount, out available, out precision, out fee, out feeAddress, out owner, out admin, out issuer, out expiration, out isFrozen);
 
-            uut.GetName().Should().Be("neo");
+            uut.GetName().Should().Be("cron");
             // The base class GetName() method should be be optimised to avoid the slow try / catch
         }
 
@@ -432,10 +432,10 @@ namespace Neo.UnitTests
             uint expiration;
             bool isFrozen;
             setupAssetStateWithValues(uut, out assetId, out assetType, out name, out amount, out available, out precision, out fee, out feeAddress, out owner, out admin, out issuer, out expiration, out isFrozen);
-            uut.Name = "[{\"lang\":\"zh-CN\",\"name\":\"小蚁股\"},{\"lang\":\"en\",\"name\":\"Neo\"}]";
+            uut.Name = "[{\"lang\":\"zh-CN\",\"name\":\"小蚁股\"},{\"lang\":\"en\",\"name\":\"Cron\"}]";
 
             uut.GetName(new CultureInfo("zh-CN")).Should().Be("小蚁股");
-            uut.GetName(new CultureInfo("en")).Should().Be("Neo");
+            uut.GetName(new CultureInfo("en")).Should().Be("Cron");
         }
 
         [TestMethod]
@@ -451,10 +451,10 @@ namespace Neo.UnitTests
             uint expiration;
             bool isFrozen;
             setupAssetStateWithValues(uut, out assetId, out assetType, out name, out amount, out available, out precision, out fee, out feeAddress, out owner, out admin, out issuer, out expiration, out isFrozen);
-            uut.Name = "[{\"lang\":\"zh-CN\",\"name\":\"小蚁股\"},{\"lang\":\"en\",\"name\":\"Neo\"}]";
+            uut.Name = "[{\"lang\":\"zh-CN\",\"name\":\"小蚁股\"},{\"lang\":\"en\",\"name\":\"Cron\"}]";
 
             CultureInfo.CurrentCulture = new CultureInfo("en");
-            uut.GetName().Should().Be("Neo");
+            uut.GetName().Should().Be("Cron");
         }
 
         [TestMethod]
@@ -470,7 +470,7 @@ namespace Neo.UnitTests
             uint expiration;
             bool isFrozen;
             setupAssetStateWithValues(uut, out assetId, out assetType, out name, out amount, out available, out precision, out fee, out feeAddress, out owner, out admin, out issuer, out expiration, out isFrozen);
-            uut.Name = "[{\"lang\":\"zh-CN\",\"name\":\"小蚁股\"},{\"lang\":\"en\",\"name\":\"Neo\"}]";
+            uut.Name = "[{\"lang\":\"zh-CN\",\"name\":\"小蚁股\"},{\"lang\":\"en\",\"name\":\"Cron\"}]";
 
             CultureInfo.CurrentCulture = new CultureInfo("zh-CN");
             uut.GetName().Should().Be("小蚁股");
@@ -489,10 +489,10 @@ namespace Neo.UnitTests
             uint expiration;
             bool isFrozen;
             setupAssetStateWithValues(uut, out assetId, out assetType, out name, out amount, out available, out precision, out fee, out feeAddress, out owner, out admin, out issuer, out expiration, out isFrozen);
-            uut.Name = "[{\"lang\":\"zh-CN\",\"name\":\"小蚁股\"},{\"lang\":\"en\",\"name\":\"Neo\"}]";
+            uut.Name = "[{\"lang\":\"zh-CN\",\"name\":\"小蚁股\"},{\"lang\":\"en\",\"name\":\"Cron\"}]";
 
             CultureInfo.CurrentCulture = new CultureInfo("de-DE");
-            uut.GetName().Should().Be("Neo"); // defaults to english IF english is in the name
+            uut.GetName().Should().Be("Cron"); // defaults to english IF english is in the name
         }
 
         [TestMethod]

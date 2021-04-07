@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.IO.Caching;
+using Cron.IO.Caching;
 using System.Linq;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     [TestClass]
     public class UT_FifoSet

@@ -1,15 +1,15 @@
-﻿using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.SmartContract;
-using Neo.VM.Types;
+﻿using Cron.Cryptography.ECC;
+using Cron.IO;
+using Cron.SmartContract;
+using Cron.VM.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using VMArray = Neo.VM.Types.Array;
-using VMBoolean = Neo.VM.Types.Boolean;
+using VMArray = Cron.VM.Types.Array;
+using VMBoolean = Cron.VM.Types.Boolean;
 
-namespace Neo.VM
+namespace Cron.VM
 {
     public static class Helper
     {

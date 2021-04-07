@@ -1,8 +1,8 @@
-using Neo.IO;
+using Cron.IO;
 using System;
 using System.Collections.Generic;
 
-namespace Neo.Trie.MPT
+namespace Cron.Trie.MPT
 {
     public class MPTReadOnlyTrie
     {

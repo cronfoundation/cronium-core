@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Neo.Consensus
+namespace Cron.Consensus
 {
     public class ChangeView : ConsensusMessage
     {

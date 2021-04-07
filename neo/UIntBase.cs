@@ -1,10 +1,10 @@
-﻿using Neo.IO;
+﻿using Cron.IO;
 using System;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace Neo
+namespace Cron
 {
     /// <summary>
     /// Base class for little-endian unsigned integers. Two classes inherit from this: UInt160 and UInt256.

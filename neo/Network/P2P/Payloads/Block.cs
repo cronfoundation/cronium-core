@@ -1,13 +1,13 @@
-﻿using Neo.Cryptography;
-using Neo.IO;
-using Neo.IO.Json;
-using Neo.Ledger;
+﻿using Cron.Cryptography;
+using Cron.IO;
+using Cron.IO.Json;
+using Cron.Ledger;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class Block : BlockBase, IInventory, IEquatable<Block>
     {

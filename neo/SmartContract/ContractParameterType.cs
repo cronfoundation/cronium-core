@@ -1,4 +1,4 @@
-﻿namespace Neo.SmartContract
+﻿namespace Cron.SmartContract
 {
     public enum ContractParameterType : byte
     {

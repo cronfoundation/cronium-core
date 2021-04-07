@@ -1,15 +1,15 @@
-﻿using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.IO.Json;
-using Neo.Network.P2P.Payloads;
-using Neo.Wallets;
+﻿using Cron.Cryptography.ECC;
+using Cron.IO;
+using Cron.IO.Json;
+using Cron.Network.P2P.Payloads;
+using Cron.Wallets;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public class AssetState : StateBase, ICloneable<AssetState>
     {

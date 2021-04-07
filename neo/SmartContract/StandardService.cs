@@ -1,21 +1,21 @@
-﻿using Neo.Cryptography;
-using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.VM;
-using Neo.VM.Types;
+﻿using Cron.Cryptography;
+using Cron.Cryptography.ECC;
+using Cron.IO;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
+using Cron.VM;
+using Cron.VM.Types;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using VMArray = Neo.VM.Types.Array;
-using VMBoolean = Neo.VM.Types.Boolean;
+using VMArray = Cron.VM.Types.Array;
+using VMBoolean = Cron.VM.Types.Boolean;
 
-namespace Neo.SmartContract
+namespace Cron.SmartContract
 {
     public class StandardService : IDisposable, IInteropService
     {
@@ -145,7 +145,7 @@ namespace Neo.SmartContract
 
         protected bool Runtime_Platform(ExecutionEngine engine)
         {
-            engine.CurrentContext.EvaluationStack.Push(Encoding.ASCII.GetBytes("NEO"));
+            engine.CurrentContext.EvaluationStack.Push(Encoding.ASCII.GetBytes("CRON"));
             return true;
         }
 

@@ -1,9 +1,9 @@
-﻿using Neo.VM;
+﻿using Cron.VM;
 using System;
 using System.Linq;
 using System.Security.Cryptography;
 
-namespace Neo.Cryptography
+namespace Cron.Cryptography
 {
     public class Crypto : ICrypto
     {

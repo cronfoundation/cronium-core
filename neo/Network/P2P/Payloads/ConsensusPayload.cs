@@ -1,15 +1,15 @@
 ﻿#pragma warning disable CS0612
-using Neo.Consensus;
-using Neo.Cryptography;
-using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.VM;
+using Cron.Consensus;
+using Cron.Cryptography;
+using Cron.Cryptography.ECC;
+using Cron.IO;
+using Cron.Persistence;
+using Cron.SmartContract;
+using Cron.VM;
 using System;
 using System.IO;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class ConsensusPayload : IInventory
     {

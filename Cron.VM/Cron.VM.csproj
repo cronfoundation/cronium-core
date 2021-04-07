@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Copyright></Copyright>
+    <AssemblyTitle>Cron.VM</AssemblyTitle>
+    <Description>Cron.VM</Description>
+    <Version>1.0.0.0</Version>
+    <Authors>The CronTracker Project</Authors>
+    <TargetFrameworks>netstandard1.6;net461</TargetFrameworks>
+    <AssemblyName>Cron.VM</AssemblyName>
+    <PackageId>Cron.VM</PackageId>
+    <PackageTags>Cron.VM;CronVM</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">1.6.0</NetStandardImplicitPackageVersion>
+    <RootNamespace>Cron.VM</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
+    <Reference Include="System.Numerics" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>

@@ -1,9 +1,9 @@
-﻿using Neo.IO;
-using Neo.IO.Json;
+﻿using Cron.IO;
+using Cron.IO.Json;
 using System;
 using System.IO;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class CoinReference : IEquatable<CoinReference>, ISerializable
     {

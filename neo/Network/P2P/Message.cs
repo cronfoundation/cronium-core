@@ -1,10 +1,10 @@
-﻿using Neo.Cryptography;
-using Neo.IO;
-using Neo.Network.P2P.Payloads;
+﻿using Cron.Cryptography;
+using Cron.IO;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.IO;
 
-namespace Neo.Network.P2P
+namespace Cron.Network.P2P
 {
     public class Message : ISerializable
     {

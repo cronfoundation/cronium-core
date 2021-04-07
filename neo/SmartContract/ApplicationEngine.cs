@@ -1,10 +1,10 @@
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.VM;
-using Neo.VM.Types;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
+using Cron.VM;
+using Cron.VM.Types;
 
-namespace Neo.SmartContract
+namespace Cron.SmartContract
 {
     public class ApplicationEngine : ExecutionEngine
     {
@@ -17,10 +17,10 @@ namespace Neo.SmartContract
         private readonly Snapshot snapshot;
 
         public Fixed8 GasConsumed => new Fixed8(gas_consumed);
-        public new NeoService Service => (NeoService)base.Service;
+        public new CronService Service => (CronService)base.Service;
 
         public ApplicationEngine(TriggerType trigger, IScriptContainer container, Snapshot snapshot, Fixed8 gas, bool testMode = false)
-            : base(container, Cryptography.Crypto.Default, snapshot, new NeoService(trigger, snapshot))
+            : base(container, Cryptography.Crypto.Default, snapshot, new CronService(trigger, snapshot))
         {
             if (snapshot.Height < Blockchain.FreeGasChangeHeight)
                 this.gas_amount = gas_free + gas.GetData();
@@ -101,14 +101,14 @@ namespace Neo.SmartContract
                 : instruction.TokenString.ToInteropMethodHash();
             long price = Service.GetPrice(api_hash);
             if (price > 0) return price;
-            if (api_hash == "Neo.Asset.Create".ToInteropMethodHash() ||
+            if (api_hash == "Cron.Asset.Create".ToInteropMethodHash() ||
                api_hash == "AntShares.Asset.Create".ToInteropMethodHash())
                 return 5000L * 100000000L / ratio;
-            if (api_hash == "Neo.Asset.Renew".ToInteropMethodHash() ||
+            if (api_hash == "Cron.Asset.Renew".ToInteropMethodHash() ||
                 api_hash == "AntShares.Asset.Renew".ToInteropMethodHash())
                 return (byte)CurrentContext.EvaluationStack.Peek(1).GetBigInteger() * 5000L * 100000000L / ratio;
-            if (api_hash == "Neo.Contract.Create".ToInteropMethodHash() ||
-                api_hash == "Neo.Contract.Migrate".ToInteropMethodHash() ||
+            if (api_hash == "Cron.Contract.Create".ToInteropMethodHash() ||
+                api_hash == "Cron.Contract.Migrate".ToInteropMethodHash() ||
                 api_hash == "AntShares.Contract.Create".ToInteropMethodHash() ||
                 api_hash == "AntShares.Contract.Migrate".ToInteropMethodHash())
             {
@@ -128,7 +128,7 @@ namespace Neo.SmartContract
             }
             if (api_hash == "System.Storage.Put".ToInteropMethodHash() ||
                 api_hash == "System.Storage.PutEx".ToInteropMethodHash() ||
-                api_hash == "Neo.Storage.Put".ToInteropMethodHash() ||
+                api_hash == "Cron.Storage.Put".ToInteropMethodHash() ||
                 api_hash == "AntShares.Storage.Put".ToInteropMethodHash())
                 return ((CurrentContext.EvaluationStack.Peek(1).GetByteArray().Length + CurrentContext.EvaluationStack.Peek(2).GetByteArray().Length - 1) / 1024 + 1) * 1000;
             return 1;

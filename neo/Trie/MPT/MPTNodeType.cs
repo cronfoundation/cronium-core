@@ -1,4 +1,4 @@
-namespace Neo.Trie.MPT
+namespace Cron.Trie.MPT
 {
     public enum NodeType
     {

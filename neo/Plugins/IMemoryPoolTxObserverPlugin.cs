@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Neo.Network.P2P.Payloads;
+using Cron.Network.P2P.Payloads;
 
-namespace Neo.Plugins
+namespace Cron.Plugins
 {
     public interface IMemoryPoolTxObserverPlugin
     {

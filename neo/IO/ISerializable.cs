@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Neo.IO
+namespace Cron.IO
 {
     public interface ISerializable
     {

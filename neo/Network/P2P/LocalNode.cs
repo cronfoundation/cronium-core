@@ -1,7 +1,7 @@
 ﻿using Akka.Actor;
-using Neo.IO;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
+using Cron.IO;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Net.Sockets;
 using System.Reflection;
 using System.Threading;
 
-namespace Neo.Network.P2P
+namespace Cron.Network.P2P
 {
     public class LocalNode : Peer
     {
@@ -22,7 +22,7 @@ namespace Neo.Network.P2P
         public const uint ProtocolVersion = 0;
 
         private static readonly object lockObj = new object();
-        private readonly NeoSystem system;
+        private readonly CronSystem system;
         internal readonly ConcurrentDictionary<IActorRef, RemoteNode> RemoteNodes = new ConcurrentDictionary<IActorRef, RemoteNode>();
 
         public int ConnectedCount => RemoteNodes.Count;
@@ -47,7 +47,7 @@ namespace Neo.Network.P2P
             UserAgent = $"/{Assembly.GetExecutingAssembly().GetName().Name}:{Assembly.GetExecutingAssembly().GetVersion()}/";
         }
 
-        public LocalNode(NeoSystem system)
+        public LocalNode(CronSystem system)
         {
             lock (lockObj)
             {
@@ -173,7 +173,7 @@ namespace Neo.Network.P2P
             Connections.Tell(inventory);
         }
 
-        public static Props Props(NeoSystem system)
+        public static Props Props(CronSystem system)
         {
             return Akka.Actor.Props.Create(() => new LocalNode(system));
         }

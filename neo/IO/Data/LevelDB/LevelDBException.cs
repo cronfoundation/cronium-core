@@ -1,6 +1,6 @@
 ﻿using System.Data.Common;
 
-namespace Neo.IO.Data.LevelDB
+namespace Cron.IO.Data.LevelDB
 {
     public class LevelDBException : DbException
     {

@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Neo.Ledger;
+using Cron.Ledger;
 using FluentAssertions;
-using Neo.Network.P2P.Payloads;
+using Cron.Network.P2P.Payloads;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     [TestClass]
     public class UT_PoolItem

@@ -1,12 +1,12 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     [TestClass]
     public class UT_MemoryPool
@@ -19,10 +19,10 @@ namespace Neo.UnitTests
             // protect against external changes on TimeProvider
             TimeProvider.ResetToDefault();
 
-            NeoSystem TheNeoSystem = TestBlockchain.InitializeMockNeoSystem();
+            CronSystem theCronSystem = TestBlockchain.InitializeMockCronSystem();
 
             // Create a MemoryPool with capacity of 100
-            _unit = new MemoryPool(TheNeoSystem, 100);
+            _unit = new MemoryPool(theCronSystem, 100);
 
             // Verify capacity equals the amount specified
             _unit.Capacity.ShouldBeEquivalentTo(100);

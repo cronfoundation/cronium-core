@@ -1,9 +1,9 @@
-﻿using Neo.Ledger;
-using Neo.SmartContract;
-using Neo.VM;
+﻿using Cron.Ledger;
+using Cron.SmartContract;
+using Cron.VM;
 using System;
 
-namespace Neo.Wallets
+namespace Cron.Wallets
 {
     public class AssetDescriptor
     {

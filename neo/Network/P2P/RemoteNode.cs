@@ -1,23 +1,23 @@
 ﻿using Akka.Actor;
 using Akka.Configuration;
 using Akka.IO;
-using Neo.Cryptography;
-using Neo.IO;
-using Neo.IO.Actors;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
+using Cron.Cryptography;
+using Cron.IO;
+using Cron.IO.Actors;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
-namespace Neo.Network.P2P
+namespace Cron.Network.P2P
 {
     public class RemoteNode : Connection
     {
         internal class Relay { public IInventory Inventory; }
 
-        private readonly NeoSystem system;
+        private readonly CronSystem system;
         private readonly IActorRef protocol;
         private readonly Queue<Message> message_queue_high = new Queue<Message>();
         private readonly Queue<Message> message_queue_low = new Queue<Message>();
@@ -31,7 +31,7 @@ namespace Neo.Network.P2P
         public VersionPayload Version { get; private set; }
         public uint LastBlockIndex { get; private set; }
 
-        public RemoteNode(NeoSystem system, object connection, IPEndPoint remote, IPEndPoint local)
+        public RemoteNode(CronSystem system, object connection, IPEndPoint remote, IPEndPoint local)
             : base(connection, remote, local)
         {
             this.system = system;
@@ -199,7 +199,7 @@ namespace Neo.Network.P2P
             base.PostStop();
         }
 
-        internal static Props Props(NeoSystem system, object connection, IPEndPoint remote, IPEndPoint local)
+        internal static Props Props(CronSystem system, object connection, IPEndPoint remote, IPEndPoint local)
         {
             return Akka.Actor.Props.Create(() => new RemoteNode(system, connection, remote, local)).WithMailbox("remote-node-mailbox");
         }

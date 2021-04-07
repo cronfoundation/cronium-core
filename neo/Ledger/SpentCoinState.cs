@@ -1,8 +1,8 @@
-﻿using Neo.IO;
+﻿using Cron.IO;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public class SpentCoinState : StateBase, ICloneable<SpentCoinState>
     {

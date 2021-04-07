@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Neo.Network.P2P.Payloads;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace Neo
+namespace Cron
 {
     public class ProtocolSettings
     {

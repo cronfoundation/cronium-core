@@ -1,16 +1,16 @@
-﻿using Neo.IO.Json;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.SmartContract;
+﻿using Cron.IO.Json;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
+using Cron.SmartContract;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
-using UserWallet = Neo.Wallets.SQLite.UserWallet;
+using UserWallet = Cron.Wallets.SQLite.UserWallet;
 
-namespace Neo.Wallets.NEP6
+namespace Cron.Wallets.NEP6
 {
     public class NEP6Wallet : Wallet
     {

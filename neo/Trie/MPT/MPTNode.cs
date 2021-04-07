@@ -1,9 +1,9 @@
-using Neo.Cryptography;
-using Neo.IO.Json;
+using Cron.Cryptography;
+using Cron.IO.Json;
 using System.IO;
 using System.Text;
 
-namespace Neo.Trie.MPT
+namespace Cron.Trie.MPT
 {
     public abstract class MPTNode
     {

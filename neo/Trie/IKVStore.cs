@@ -1,5 +1,5 @@
 
-namespace Neo.Trie
+namespace Cron.Trie
 {
     public interface IKVStore : IKVReadOnlyStore
     {

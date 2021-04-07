@@ -1,12 +1,12 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.IO;
-using Neo.Ledger;
+using Cron.IO;
+using Cron.Ledger;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     [TestClass]
     public class UT_SpentCointState

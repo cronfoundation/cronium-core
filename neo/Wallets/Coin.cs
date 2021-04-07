@@ -1,8 +1,8 @@
-﻿using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
+﻿using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
 using System;
 
-namespace Neo.Wallets
+namespace Cron.Wallets
 {
     public class Coin : IEquatable<Coin>
     {

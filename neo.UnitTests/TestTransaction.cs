@@ -1,6 +1,6 @@
-﻿using Neo.Network.P2P.Payloads;
+﻿using Cron.Network.P2P.Payloads;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     public class TestTransaction : Transaction
     {

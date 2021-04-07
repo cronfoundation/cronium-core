@@ -1,10 +1,10 @@
-﻿using Neo.Cryptography;
+﻿using Cron.Cryptography;
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Neo.IO.Data.LevelDB
+namespace Cron.IO.Data.LevelDB
 {
     public struct Slice : IComparable<Slice>, IEquatable<Slice>
     {

@@ -1,10 +1,10 @@
-﻿using Neo.IO.Json;
-using Neo.Ledger;
+﻿using Cron.IO.Json;
+using Cron.Ledger;
 using System;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class MinerTransaction : Transaction
     {

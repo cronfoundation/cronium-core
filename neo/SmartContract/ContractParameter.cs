@@ -1,12 +1,12 @@
-﻿using Neo.Cryptography.ECC;
-using Neo.IO.Json;
+﻿using Cron.Cryptography.ECC;
+using Cron.IO.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 
-namespace Neo.SmartContract
+namespace Cron.SmartContract
 {
     public class ContractParameter
     {

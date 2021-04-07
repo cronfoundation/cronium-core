@@ -1,4 +1,4 @@
-﻿namespace Neo.IO
+﻿namespace Cron.IO
 {
     public interface ICloneable<T>
     {

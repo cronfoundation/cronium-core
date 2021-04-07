@@ -1,9 +1,9 @@
 ﻿using Akka.Actor;
-using Neo.Network.P2P.Payloads;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.Collections.Generic;
 
-namespace Neo.Network.P2P
+namespace Cron.Network.P2P
 {
     internal class TaskSession
     {

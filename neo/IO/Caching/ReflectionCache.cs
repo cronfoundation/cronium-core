@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Neo.IO.Caching
+namespace Cron.IO.Caching
 {
     public class ReflectionCache<T> : Dictionary<T, Type>
     {

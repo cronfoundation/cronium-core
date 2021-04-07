@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Neo.IO.Caching
+namespace Cron.IO.Caching
 {
     public abstract class MetaDataCache<T>
         where T : class, ICloneable<T>, ISerializable, new()

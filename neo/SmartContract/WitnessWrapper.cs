@@ -1,8 +1,8 @@
-﻿using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
+﻿using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
 using System.Linq;
 
-namespace Neo.SmartContract
+namespace Cron.SmartContract
 {
     internal class WitnessWrapper
     {

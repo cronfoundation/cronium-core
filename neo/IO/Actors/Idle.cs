@@ -1,4 +1,4 @@
-﻿namespace Neo.IO.Actors
+﻿namespace Cron.IO.Actors
 {
     internal sealed class Idle
     {

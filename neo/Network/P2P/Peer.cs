@@ -14,7 +14,7 @@ using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
 
-namespace Neo.Network.P2P
+namespace Cron.Network.P2P
 {
     public abstract class Peer : UntypedActor
     {
@@ -147,9 +147,9 @@ namespace Neo.Network.P2P
                 {
                     localAddresses.Add(UPnP.GetExternalIP());
                     if (port > 0)
-                        UPnP.ForwardPort(port, ProtocolType.Tcp, "NEO");
+                        UPnP.ForwardPort(port, ProtocolType.Tcp, "CRON");
                     if (wsPort > 0)
-                        UPnP.ForwardPort(wsPort, ProtocolType.Tcp, "NEO WebSocket");
+                        UPnP.ForwardPort(wsPort, ProtocolType.Tcp, "CRON WebSocket");
                 }
                 catch { }
             }

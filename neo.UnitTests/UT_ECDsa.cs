@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using System.Numerics;
 using System;
 
-namespace Neo.Cryptography.ECC.Tests
+namespace Cron.Cryptography.ECC.Tests
 {
     [TestClass()]
     public class UT_ECDsa

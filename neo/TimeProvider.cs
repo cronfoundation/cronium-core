@@ -1,6 +1,6 @@
 using System;
 
-namespace Neo
+namespace Cron
 {
     public class TimeProvider
     {

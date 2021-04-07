@@ -1,7 +1,7 @@
-using Neo.Network.P2P.Payloads;
+using Cron.Network.P2P.Payloads;
 using System;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     /// <summary>
     /// Represents an item in the Memory Pool.

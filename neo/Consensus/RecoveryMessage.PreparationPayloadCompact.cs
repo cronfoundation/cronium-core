@@ -1,9 +1,9 @@
-﻿using Neo.IO;
-using Neo.Network.P2P.Payloads;
+﻿using Cron.IO;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.IO;
 
-namespace Neo.Consensus
+namespace Cron.Consensus
 {
     partial class RecoveryMessage
     {

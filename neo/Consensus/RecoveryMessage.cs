@@ -1,12 +1,12 @@
-﻿using Neo.IO;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.SmartContract;
+﻿using Cron.IO;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
+using Cron.SmartContract;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Consensus
+namespace Cron.Consensus
 {
     public partial class RecoveryMessage : ConsensusMessage
     {

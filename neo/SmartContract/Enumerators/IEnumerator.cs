@@ -1,7 +1,7 @@
-﻿using Neo.VM;
+﻿using Cron.VM;
 using System;
 
-namespace Neo.SmartContract.Enumerators
+namespace Cron.SmartContract.Enumerators
 {
     internal interface IEnumerator : IDisposable
     {

@@ -1,4 +1,4 @@
-﻿using Neo.IO.Caching;
+﻿using Cron.IO.Caching;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Neo
+namespace Cron
 {
     public static class Helper
     {

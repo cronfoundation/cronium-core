@@ -1,6 +1,6 @@
-﻿using Neo.Network.P2P.Payloads;
+﻿using Cron.Network.P2P.Payloads;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public class SpentCoin
     {

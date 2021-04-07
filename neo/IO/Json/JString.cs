@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Text.Encodings.Web;
 
-namespace Neo.IO.Json
+namespace Cron.IO.Json
 {
     public class JString : JObject
     {

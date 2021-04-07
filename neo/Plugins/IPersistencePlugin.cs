@@ -1,9 +1,9 @@
 ﻿using System;
-using Neo.Persistence;
+using Cron.Persistence;
 using System.Collections.Generic;
-using static Neo.Ledger.Blockchain;
+using static Cron.Ledger.Blockchain;
 
-namespace Neo.Plugins
+namespace Cron.Plugins
 {
     public interface IPersistencePlugin
     {

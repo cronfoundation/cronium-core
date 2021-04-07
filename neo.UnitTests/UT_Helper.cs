@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Network.P2P;
-using Neo.SmartContract;
-using Neo.Wallets;
+using Cron.Network.P2P;
+using Cron.SmartContract;
+using Cron.Wallets;
 using FluentAssertions;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     [TestClass]
     public class UT_Helper

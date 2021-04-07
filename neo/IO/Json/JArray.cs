@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Neo.IO.Json
+namespace Cron.IO.Json
 {
     public class JArray : JObject, IList<JObject>
     {

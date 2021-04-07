@@ -1,10 +1,10 @@
 ﻿using Akka.Actor;
 using Akka.Configuration;
-using Neo.Cryptography;
-using Neo.IO.Actors;
-using Neo.IO.Caching;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
+using Cron.Cryptography;
+using Cron.IO.Actors;
+using Cron.IO.Caching;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.Collections;
 using System.Collections.Concurrent;
@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace Neo.Network.P2P
+namespace Cron.Network.P2P
 {
     internal class TaskManager : UntypedActor
     {
@@ -28,7 +28,7 @@ namespace Neo.Network.P2P
         private static readonly TimeSpan TimerInterval = TimeSpan.FromSeconds(30);
         private static readonly TimeSpan TaskTimeout = TimeSpan.FromMinutes(1);
 
-        private readonly NeoSystem system;
+        private readonly CronSystem system;
         private const int MaxConncurrentTasks = 3;
         private const int PingCoolingOffPeriod = 60; // in secconds.
 
@@ -50,7 +50,7 @@ namespace Neo.Network.P2P
         private bool HasStateRootTask => globalTasks.ContainsKey(StateRootTaskHash);
         private DateTime StateRootSyncTime;
 
-        public TaskManager(NeoSystem system)
+        public TaskManager(CronSystem system)
         {
             this.system = system;
         }
@@ -227,7 +227,7 @@ namespace Neo.Network.P2P
             base.PostStop();
         }
 
-        public static Props Props(NeoSystem system)
+        public static Props Props(CronSystem system)
         {
             return Akka.Actor.Props.Create(() => new TaskManager(system)).WithMailbox("task-manager-mailbox");
         }

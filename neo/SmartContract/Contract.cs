@@ -1,10 +1,10 @@
-﻿using Neo.Cryptography.ECC;
-using Neo.VM;
-using Neo.Wallets;
+﻿using Cron.Cryptography.ECC;
+using Cron.VM;
+using Cron.Wallets;
 using System;
 using System.Linq;
 
-namespace Neo.SmartContract
+namespace Cron.SmartContract
 {
     public class Contract
     {

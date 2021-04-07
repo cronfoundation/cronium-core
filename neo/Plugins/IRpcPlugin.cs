@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Neo.IO.Json;
+using Cron.IO.Json;
 
-namespace Neo.Plugins
+namespace Cron.Plugins
 {
     public interface IRpcPlugin
     {

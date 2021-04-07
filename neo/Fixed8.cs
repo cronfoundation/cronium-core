@@ -1,9 +1,9 @@
-﻿using Neo.IO;
+﻿using Cron.IO;
 using System;
 using System.Globalization;
 using System.IO;
 
-namespace Neo
+namespace Cron
 {
     /// <summary>
     /// Accurate to 10^-8 64-bit fixed-point numbers minimize rounding errors.

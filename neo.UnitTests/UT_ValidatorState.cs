@@ -1,11 +1,11 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Cryptography.ECC;
-using Neo.Ledger;
+using Cron.Cryptography.ECC;
+using Cron.Ledger;
 using System.IO;
 using System.Text;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     [TestClass]
     public class UT_ValidatorState

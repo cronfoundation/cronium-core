@@ -1,4 +1,4 @@
-﻿namespace Neo.Wallets.SQLite
+﻿namespace Cron.Wallets.SQLite
 {
     internal class Contract
     {

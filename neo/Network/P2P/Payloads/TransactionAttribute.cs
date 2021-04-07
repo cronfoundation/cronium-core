@@ -1,11 +1,11 @@
-﻿using Neo.IO;
-using Neo.IO.Json;
-using Neo.VM;
+﻿using Cron.IO;
+using Cron.IO.Json;
+using Cron.VM;
 using System;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class TransactionAttribute : ISerializable
     {

@@ -1,7 +1,7 @@
-﻿using Neo.Network.P2P.Payloads;
+﻿using Cron.Network.P2P.Payloads;
 using System.IO;
 
-namespace Neo.Network.P2P
+namespace Cron.Network.P2P
 {
     public static class Helper
     {

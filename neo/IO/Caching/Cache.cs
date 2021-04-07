@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace Neo.IO.Caching
+namespace Cron.IO.Caching
 {
     internal abstract class Cache<TKey, TValue> : ICollection<TValue>, IDisposable
     {

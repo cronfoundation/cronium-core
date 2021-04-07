@@ -1,114 +1,114 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Ledger;
-using Neo.SmartContract;
-using Neo.VM;
+using Cron.Ledger;
+using Cron.SmartContract;
+using Cron.VM;
 using System;
 using System.Reflection;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     [TestClass]
     public class UT_InteropPrices
     {
-        NeoService uut;
+        CronService uut;
 
         [TestInitialize]
         public void TestSetup()
         {
-            uut = new NeoService(TriggerType.Application, null);
+            uut = new CronService(TriggerType.Application, null);
         }
 
         [TestMethod]
-        public void NeoServiceFixedPriceWithReflection()
+        public void CronServiceFixedPriceWithReflection()
         {
             // testing reflection with public methods too
-            MethodInfo GetPrice = typeof(NeoService).GetMethod("GetPrice", BindingFlags.InvokeMethod | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, new Type[] { typeof(uint) }, null);
-            GetPrice.Invoke(uut, new object[] { "Neo.Runtime.CheckWitness".ToInteropMethodHash() }).Should().Be(200L);
+            MethodInfo GetPrice = typeof(CronService).GetMethod("GetPrice", BindingFlags.InvokeMethod | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, new Type[] { typeof(uint) }, null);
+            GetPrice.Invoke(uut, new object[] { "Cron.Runtime.CheckWitness".ToInteropMethodHash() }).Should().Be(200L);
         }
 
         [TestMethod]
-        public void NeoServiceFixedPrices()
+        public void CronServiceFixedPrices()
         {
-            uut.GetPrice("Neo.Runtime.GetTrigger".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Runtime.CheckWitness".ToInteropMethodHash()).Should().Be(200);
-            uut.GetPrice("Neo.Runtime.Notify".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Runtime.Log".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Runtime.GetTime".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Runtime.Serialize".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Runtime.Deserialize".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Blockchain.GetHeight".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Blockchain.GetHeader".ToInteropMethodHash()).Should().Be(100);
-            uut.GetPrice("Neo.Blockchain.GetBlock".ToInteropMethodHash()).Should().Be(200);
-            uut.GetPrice("Neo.Blockchain.GetTransaction".ToInteropMethodHash()).Should().Be(100);
-            uut.GetPrice("Neo.Blockchain.GetTransactionHeight".ToInteropMethodHash()).Should().Be(100);
-            uut.GetPrice("Neo.Blockchain.GetAccount".ToInteropMethodHash()).Should().Be(100);
-            uut.GetPrice("Neo.Blockchain.GetValidators".ToInteropMethodHash()).Should().Be(200);
-            uut.GetPrice("Neo.Blockchain.GetAsset".ToInteropMethodHash()).Should().Be(100);
-            uut.GetPrice("Neo.Blockchain.GetContract".ToInteropMethodHash()).Should().Be(100);
-            uut.GetPrice("Neo.Header.GetHash".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Header.GetVersion".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Header.GetPrevHash".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Header.GetMerkleRoot".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Header.GetTimestamp".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Header.GetIndex".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Header.GetConsensusData".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Header.GetNextConsensus".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Block.GetTransactionCount".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Block.GetTransactions".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Block.GetTransaction".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Transaction.GetHash".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Transaction.GetType".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Transaction.GetAttributes".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Transaction.GetInputs".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Transaction.GetOutputs".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Transaction.GetReferences".ToInteropMethodHash()).Should().Be(200);
-            uut.GetPrice("Neo.Transaction.GetUnspentCoins".ToInteropMethodHash()).Should().Be(200);
-            uut.GetPrice("Neo.Transaction.GetWitnesses".ToInteropMethodHash()).Should().Be(200);
-            uut.GetPrice("Neo.InvocationTransaction.GetScript".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Witness.GetVerificationScript".ToInteropMethodHash()).Should().Be(100);
-            uut.GetPrice("Neo.Attribute.GetUsage".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Attribute.GetData".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Input.GetHash".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Input.GetIndex".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Output.GetAssetId".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Output.GetValue".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Output.GetScriptHash".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Account.GetScriptHash".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Account.GetVotes".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Account.GetBalance".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Account.IsStandard".ToInteropMethodHash()).Should().Be(100);
-            uut.GetPrice("Neo.Asset.GetAssetId".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Asset.GetAssetType".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Asset.GetAmount".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Asset.GetAvailable".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Asset.GetPrecision".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Asset.GetOwner".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Asset.GetAdmin".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Asset.GetIssuer".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Contract.Destroy".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Contract.GetScript".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Contract.IsPayable".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Contract.GetStorageContext".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Storage.GetContext".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Storage.GetReadOnlyContext".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Storage.Get".ToInteropMethodHash()).Should().Be(100);
-            uut.GetPrice("Neo.Storage.Delete".ToInteropMethodHash()).Should().Be(100);
-            uut.GetPrice("Neo.Storage.Find".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.StorageContext.AsReadOnly".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Enumerator.Create".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Enumerator.Next".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Enumerator.Value".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Enumerator.Concat".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Iterator.Create".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Iterator.Key".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Iterator.Keys".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Iterator.Values".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Iterator.Concat".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Runtime.GetTrigger".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Runtime.CheckWitness".ToInteropMethodHash()).Should().Be(200);
+            uut.GetPrice("Cron.Runtime.Notify".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Runtime.Log".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Runtime.GetTime".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Runtime.Serialize".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Runtime.Deserialize".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Blockchain.GetHeight".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Blockchain.GetHeader".ToInteropMethodHash()).Should().Be(100);
+            uut.GetPrice("Cron.Blockchain.GetBlock".ToInteropMethodHash()).Should().Be(200);
+            uut.GetPrice("Cron.Blockchain.GetTransaction".ToInteropMethodHash()).Should().Be(100);
+            uut.GetPrice("Cron.Blockchain.GetTransactionHeight".ToInteropMethodHash()).Should().Be(100);
+            uut.GetPrice("Cron.Blockchain.GetAccount".ToInteropMethodHash()).Should().Be(100);
+            uut.GetPrice("Cron.Blockchain.GetValidators".ToInteropMethodHash()).Should().Be(200);
+            uut.GetPrice("Cron.Blockchain.GetAsset".ToInteropMethodHash()).Should().Be(100);
+            uut.GetPrice("Cron.Blockchain.GetContract".ToInteropMethodHash()).Should().Be(100);
+            uut.GetPrice("Cron.Header.GetHash".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Header.GetVersion".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Header.GetPrevHash".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Header.GetMerkleRoot".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Header.GetTimestamp".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Header.GetIndex".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Header.GetConsensusData".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Header.GetNextConsensus".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Block.GetTransactionCount".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Block.GetTransactions".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Block.GetTransaction".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Transaction.GetHash".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Transaction.GetType".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Transaction.GetAttributes".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Transaction.GetInputs".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Transaction.GetOutputs".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Transaction.GetReferences".ToInteropMethodHash()).Should().Be(200);
+            uut.GetPrice("Cron.Transaction.GetUnspentCoins".ToInteropMethodHash()).Should().Be(200);
+            uut.GetPrice("Cron.Transaction.GetWitnesses".ToInteropMethodHash()).Should().Be(200);
+            uut.GetPrice("Cron.InvocationTransaction.GetScript".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Witness.GetVerificationScript".ToInteropMethodHash()).Should().Be(100);
+            uut.GetPrice("Cron.Attribute.GetUsage".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Attribute.GetData".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Input.GetHash".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Input.GetIndex".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Output.GetAssetId".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Output.GetValue".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Output.GetScriptHash".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Account.GetScriptHash".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Account.GetVotes".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Account.GetBalance".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Account.IsStandard".ToInteropMethodHash()).Should().Be(100);
+            uut.GetPrice("Cron.Asset.GetAssetId".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Asset.GetAssetType".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Asset.GetAmount".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Asset.GetAvailable".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Asset.GetPrecision".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Asset.GetOwner".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Asset.GetAdmin".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Asset.GetIssuer".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Contract.Destroy".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Contract.GetScript".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Contract.IsPayable".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Contract.GetStorageContext".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Storage.GetContext".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Storage.GetReadOnlyContext".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Storage.Get".ToInteropMethodHash()).Should().Be(100);
+            uut.GetPrice("Cron.Storage.Delete".ToInteropMethodHash()).Should().Be(100);
+            uut.GetPrice("Cron.Storage.Find".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.StorageContext.AsReadOnly".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Enumerator.Create".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Enumerator.Next".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Enumerator.Value".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Enumerator.Concat".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Iterator.Create".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Iterator.Key".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Iterator.Keys".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Iterator.Values".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Iterator.Concat".ToInteropMethodHash()).Should().Be(1);
 
             #region Aliases
-            uut.GetPrice("Neo.Iterator.Next".ToInteropMethodHash()).Should().Be(1);
-            uut.GetPrice("Neo.Iterator.Value".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Iterator.Next".ToInteropMethodHash()).Should().Be(1);
+            uut.GetPrice("Cron.Iterator.Value".ToInteropMethodHash()).Should().Be(1);
             #endregion
 
             #region Old APIs
@@ -245,7 +245,7 @@ namespace Neo.UnitTests
             // ApplicationEngine.GetPriceForSysCall is protected, so we will access through reflection
             MethodInfo GetPriceForSysCall = typeof(ApplicationEngine).GetMethod("GetPriceForSysCall", BindingFlags.InvokeMethod | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, new Type[] { }, null);
 
-            // Neo.Asset.Create: 83c5c61f
+            // Cron.Asset.Create: 83c5c61f
             byte[] SyscallAssetCreateHash = new byte[] { 0x68, 0x04, 0x83, 0xc5, 0xc6, 0x1f };
             using (ApplicationEngine ae = new ApplicationEngine(TriggerType.Application, null, Blockchain.Singleton.GetSnapshot(), Fixed8.Zero))
             {
@@ -253,7 +253,7 @@ namespace Neo.UnitTests
                 GetPriceForSysCall.Invoke(ae, new object[] { }).Should().Be(5000L * 100000000L / 100000); // assuming private ae.ratio = 100000
             }
 
-            // Neo.Asset.Renew: 78849071 (requires push 09 push 09 before)
+            // Cron.Asset.Renew: 78849071 (requires push 09 push 09 before)
             byte[] SyscallAssetRenewHash = new byte[] { 0x59, 0x59, 0x68, 0x04, 0x78, 0x84, 0x90, 0x71 };
             using (ApplicationEngine ae = new ApplicationEngine(TriggerType.Application, null, Blockchain.Singleton.GetSnapshot(), Fixed8.Zero))
             {
@@ -264,7 +264,7 @@ namespace Neo.UnitTests
                 GetPriceForSysCall.Invoke(ae, new object[] { }).Should().Be(9L * 5000L * 100000000L / 100000); // assuming private ae.ratio = 100000
             }
 
-            // Neo.Contract.Create: f66ca56e (requires push properties on fourth position)
+            // Cron.Contract.Create: f66ca56e (requires push properties on fourth position)
             byte[] SyscallContractCreateHash00 = new byte[] { (byte)ContractPropertyState.NoProperty, 0x00, 0x00, 0x00, 0x68, 0x04, 0xf6, 0x6c, 0xa5, 0x6e };
             using (ApplicationEngine ae = new ApplicationEngine(TriggerType.Application, null, Blockchain.Singleton.GetSnapshot(), Fixed8.Zero))
             {
@@ -277,7 +277,7 @@ namespace Neo.UnitTests
                 GetPriceForSysCall.Invoke(ae, new object[] { }).Should().Be(100L * 100000000L / 100000); // assuming private ae.ratio = 100000
             }
 
-            // Neo.Contract.Create: f66ca56e (requires push properties on fourth position)
+            // Cron.Contract.Create: f66ca56e (requires push properties on fourth position)
             byte[] SyscallContractCreateHash01 = new byte[] { 0x51, 0x00, 0x00, 0x00, 0x68, 0x04, 0xf6, 0x6c, 0xa5, 0x6e };
             using (ApplicationEngine ae = new ApplicationEngine(TriggerType.Application, null, Blockchain.Singleton.GetSnapshot(), Fixed8.Zero))
             {
@@ -290,7 +290,7 @@ namespace Neo.UnitTests
                 GetPriceForSysCall.Invoke(ae, new object[] { }).Should().Be(500L * 100000000L / 100000); // assuming private ae.ratio = 100000
             }
 
-            // Neo.Contract.Create: f66ca56e (requires push properties on fourth position)
+            // Cron.Contract.Create: f66ca56e (requires push properties on fourth position)
             byte[] SyscallContractCreateHash02 = new byte[] { 0x52, 0x00, 0x00, 0x00, 0x68, 0x04, 0xf6, 0x6c, 0xa5, 0x6e };
             using (ApplicationEngine ae = new ApplicationEngine(TriggerType.Application, null, Blockchain.Singleton.GetSnapshot(), Fixed8.Zero))
             {
@@ -303,7 +303,7 @@ namespace Neo.UnitTests
                 GetPriceForSysCall.Invoke(ae, new object[] { }).Should().Be(600L * 100000000L / 100000); // assuming private ae.ratio = 100000
             }
 
-            // Neo.Contract.Create: f66ca56e (requires push properties on fourth position)
+            // Cron.Contract.Create: f66ca56e (requires push properties on fourth position)
             byte[] SyscallContractCreateHash03 = new byte[] { 0x53, 0x00, 0x00, 0x00, 0x68, 0x04, 0xf6, 0x6c, 0xa5, 0x6e };
             using (ApplicationEngine ae = new ApplicationEngine(TriggerType.Application, null, Blockchain.Singleton.GetSnapshot(), Fixed8.Zero))
             {
@@ -316,7 +316,7 @@ namespace Neo.UnitTests
                 GetPriceForSysCall.Invoke(ae, new object[] { }).Should().Be(1000L * 100000000L / 100000); // assuming private ae.ratio = 100000
             }
 
-            // Neo.Contract.Migrate: 471b6290 (requires push properties on fourth position)
+            // Cron.Contract.Migrate: 471b6290 (requires push properties on fourth position)
             byte[] SyscallContractMigrateHash00 = new byte[] { (byte)ContractPropertyState.NoProperty, 0x00, 0x00, 0x00, 0x68, 0x04, 0x47, 0x1b, 0x62, 0x90 };
             using (ApplicationEngine ae = new ApplicationEngine(TriggerType.Application, null, Blockchain.Singleton.GetSnapshot(), Fixed8.Zero))
             {

@@ -1,11 +1,11 @@
-﻿using Neo.IO;
-using Neo.IO.Caching;
-using Neo.IO.Json;
-using Neo.Network.P2P.Payloads;
+﻿using Cron.IO;
+using Cron.IO.Caching;
+using Cron.IO.Json;
+using Cron.Network.P2P.Payloads;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public class TrimmedBlock : BlockBase
     {

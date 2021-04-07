@@ -3,7 +3,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 
-namespace Neo.Cryptography
+namespace Cron.Cryptography
 {
     public static class Base58
     {

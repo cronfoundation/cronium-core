@@ -1,12 +1,12 @@
-﻿using Neo.Cryptography;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.VM;
+﻿using Cron.Cryptography;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
+using Cron.VM;
 using System;
 using System.Collections.Concurrent;
 using System.Text;
 
-namespace Neo.SmartContract
+namespace Cron.SmartContract
 {
     public static class Helper
     {

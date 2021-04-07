@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Neo.IO
+namespace Cron.IO
 {
     public static class Helper
     {

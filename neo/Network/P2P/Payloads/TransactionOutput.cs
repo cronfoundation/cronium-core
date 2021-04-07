@@ -1,10 +1,10 @@
-﻿using Neo.IO;
-using Neo.IO.Json;
-using Neo.Wallets;
+﻿using Cron.IO;
+using Cron.IO.Json;
+using Cron.Wallets;
 using System;
 using System.IO;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class TransactionOutput : ISerializable
     {

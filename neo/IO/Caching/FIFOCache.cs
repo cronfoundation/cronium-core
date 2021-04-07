@@ -1,4 +1,4 @@
-﻿namespace Neo.IO.Caching
+﻿namespace Cron.IO.Caching
 {
     internal abstract class FIFOCache<TKey, TValue> : Cache<TKey, TValue>
     {

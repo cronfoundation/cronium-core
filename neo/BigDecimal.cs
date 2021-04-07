@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace Neo
+namespace Cron
 {
     public struct BigDecimal
     {

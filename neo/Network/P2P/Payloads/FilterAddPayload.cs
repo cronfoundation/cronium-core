@@ -1,7 +1,7 @@
-﻿using Neo.IO;
+﻿using Cron.IO;
 using System.IO;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class FilterAddPayload : ISerializable
     {

@@ -1,10 +1,10 @@
-﻿using Neo.Cryptography;
-using Neo.SmartContract;
+﻿using Cron.Cryptography;
+using Cron.SmartContract;
 using System;
 using System.Linq;
 using System.Text;
 
-namespace Neo.Wallets
+namespace Cron.Wallets
 {
     public class KeyPair : IEquatable<KeyPair>
     {

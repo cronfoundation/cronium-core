@@ -1,13 +1,13 @@
 ﻿using Akka.Actor;
 using Akka.Configuration;
-using Neo.Cryptography;
-using Neo.IO;
-using Neo.IO.Actors;
-using Neo.IO.Caching;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.Plugins;
+using Cron.Cryptography;
+using Cron.IO;
+using Cron.IO.Actors;
+using Cron.IO.Caching;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
+using Cron.Plugins;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 
-namespace Neo.Network.P2P
+namespace Cron.Network.P2P
 {
     internal class ProtocolHandler : UntypedActor
     {
@@ -30,7 +30,7 @@ namespace Neo.Network.P2P
             }
         }
 
-        private readonly NeoSystem system;
+        private readonly CronSystem system;
         private readonly PendingKnownHashesCollection pendingKnownHashes;
         private readonly FIFOSet<UInt256> knownHashes;
         private readonly FIFOSet<UInt256> sentHashes;
@@ -43,7 +43,7 @@ namespace Neo.Network.P2P
 
         private readonly ICancelable timer = Context.System.Scheduler.ScheduleTellRepeatedlyCancelable(TimerInterval, TimerInterval, Context.Self, new Timer(), ActorRefs.NoSender);
 
-        public ProtocolHandler(NeoSystem system)
+        public ProtocolHandler(CronSystem system)
         {
             this.system = system;
             this.pendingKnownHashes = new PendingKnownHashesCollection();
@@ -390,7 +390,7 @@ namespace Neo.Network.P2P
             }
         }
 
-        public static Props Props(NeoSystem system)
+        public static Props Props(CronSystem system)
         {
             return Akka.Actor.Props.Create(() => new ProtocolHandler(system)).WithMailbox("protocol-handler-mailbox");
         }

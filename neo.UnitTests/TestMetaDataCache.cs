@@ -1,7 +1,7 @@
-﻿using Neo.IO;
-using Neo.IO.Caching;
+﻿using Cron.IO;
+using Cron.IO.Caching;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     public class TestMetaDataCache<T> : MetaDataCache<T> where T : class, ICloneable<T>, ISerializable, new()
     {

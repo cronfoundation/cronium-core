@@ -1,11 +1,11 @@
-﻿using Neo.IO;
-using Neo.SmartContract;
-using Neo.VM;
+﻿using Cron.IO;
+using Cron.SmartContract;
+using Cron.VM;
 using System;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Wallets.SQLite
+namespace Cron.Wallets.SQLite
 {
     public class VerificationContract : SmartContract.Contract, IEquatable<VerificationContract>, ISerializable
     {

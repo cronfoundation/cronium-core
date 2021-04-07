@@ -4,7 +4,7 @@ using Akka.Dispatch;
 using Akka.Dispatch.MessageQueues;
 using System.Collections;
 
-namespace Neo.IO.Actors
+namespace Cron.IO.Actors
 {
     internal abstract class PriorityMailbox : MailboxType, IProducesMessageQueue<PriorityMessageQueue>
     {

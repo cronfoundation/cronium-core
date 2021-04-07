@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Neo.IO
+namespace Cron.IO
 {
     internal class ByteArrayEqualityComparer : IEqualityComparer<byte[]>
     {

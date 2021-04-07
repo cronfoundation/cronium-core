@@ -1,5 +1,5 @@
 
-namespace Neo.Trie.MPT
+namespace Cron.Trie.MPT
 {
     public class MPTDb : MPTReadOnlyDb
     {

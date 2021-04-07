@@ -1,6 +1,6 @@
-﻿using Neo.IO.Json;
+﻿using Cron.IO.Json;
 
-namespace Neo.Wallets.NEP6
+namespace Cron.Wallets.NEP6
 {
     public class ScryptParameters
     {

@@ -1,13 +1,13 @@
-﻿using Neo.IO;
-using Neo.IO.Json;
-using Neo.Persistence;
-using Neo.SmartContract;
+﻿using Cron.IO;
+using Cron.IO.Json;
+using Cron.Persistence;
+using Cron.SmartContract;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     [Obsolete]
     public class PublishTransaction : Transaction

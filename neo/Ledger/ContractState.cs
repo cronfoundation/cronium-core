@@ -1,10 +1,10 @@
-﻿using Neo.IO;
-using Neo.IO.Json;
-using Neo.SmartContract;
+﻿using Cron.IO;
+using Cron.IO.Json;
+using Cron.SmartContract;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public class ContractState : StateBase, ICloneable<ContractState>
     {

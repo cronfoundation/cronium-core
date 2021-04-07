@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Numerics;
 
-namespace Neo.Cryptography.ECC
+namespace Cron.Cryptography.ECC
 {
     public class ECCurve
     {

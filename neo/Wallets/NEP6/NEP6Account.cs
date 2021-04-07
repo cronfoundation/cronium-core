@@ -1,7 +1,7 @@
-﻿using Neo.IO.Json;
+﻿using Cron.IO.Json;
 using System;
 
-namespace Neo.Wallets.NEP6
+namespace Cron.Wallets.NEP6
 {
     internal class NEP6Account : WalletAccount
     {

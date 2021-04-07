@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace Neo.Cryptography
+namespace Cron.Cryptography
 {
     public class MerkleTree
     {

@@ -1,4 +1,4 @@
-﻿namespace Neo.Plugins
+﻿namespace Cron.Plugins
 {
     public interface ILogPlugin
     {

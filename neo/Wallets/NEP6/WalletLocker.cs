@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Neo.Wallets.NEP6
+namespace Cron.Wallets.NEP6
 {
     internal class WalletLocker : IDisposable
     {

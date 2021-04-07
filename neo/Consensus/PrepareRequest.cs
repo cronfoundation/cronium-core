@@ -1,10 +1,10 @@
-﻿using Neo.IO;
-using Neo.Network.P2P.Payloads;
+﻿using Cron.IO;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Consensus
+namespace Cron.Consensus
 {
     public class PrepareRequest : ConsensusMessage
     {

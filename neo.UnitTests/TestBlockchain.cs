@@ -1,19 +1,19 @@
 ﻿using Moq;
-using Neo.Cryptography.ECC;
-using Neo.IO.Wrappers;
-using Neo.Ledger;
-using Neo.Persistence;
+using Cron.Cryptography.ECC;
+using Cron.IO.Wrappers;
+using Cron.Ledger;
+using Cron.Persistence;
 using System;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     public static class TestBlockchain
     {
-        private static NeoSystem TheNeoSystem;
+        private static CronSystem _theCronSystem;
 
-        public static NeoSystem InitializeMockNeoSystem()
+        public static CronSystem InitializeMockCronSystem()
         {
-            if (TheNeoSystem == null)
+            if (_theCronSystem == null)
             {
                 var mockSnapshot = new Mock<Snapshot>();
                 mockSnapshot.SetupGet(p => p.Blocks).Returns(new TestDataCache<UInt256, BlockState>());
@@ -59,11 +59,11 @@ namespace Neo.UnitTests
                 mockStore.Setup(p => p.GetStateRootHashIndex()).Returns(new TestMetaDataCache<RootHashIndex>());
                 mockStore.Setup(p => p.GetSnapshot()).Returns(mockSnapshot.Object);
                 mockStore.Setup(p => p.Get(It.IsAny<byte>(), It.IsAny<byte[]>())).Returns(UInt256.Zero.ToArray());
-                Console.WriteLine("initialize NeoSystem");
-                TheNeoSystem = new NeoSystem(mockStore.Object); // new Mock<NeoSystem>(mockStore.Object);
+                Console.WriteLine("initialize CronSystem");
+                _theCronSystem = new CronSystem(mockStore.Object); // new Mock<CronSystem>(mockStore.Object);
             }
 
-            return TheNeoSystem;
+            return _theCronSystem;
         }
     }
 }

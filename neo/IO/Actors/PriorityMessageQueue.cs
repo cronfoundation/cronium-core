@@ -7,7 +7,7 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading;
 
-namespace Neo.IO.Actors
+namespace Cron.IO.Actors
 {
     internal class PriorityMessageQueue : IMessageQueue, IUnboundedMessageQueueSemantics
     {

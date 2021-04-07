@@ -1,8 +1,8 @@
-using Neo.IO;
-using Neo.Cryptography;
+using Cron.IO;
+using Cron.Cryptography;
 using System.Collections.Generic;
 
-namespace Neo.Trie.MPT
+namespace Cron.Trie.MPT
 {
     public class MPTProofStore : IKVReadOnlyStore
     {

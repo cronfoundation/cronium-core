@@ -1,11 +1,11 @@
-﻿using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.IO.Json;
+﻿using Cron.Cryptography.ECC;
+using Cron.IO;
+using Cron.IO.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public class AccountState : StateBase, ICloneable<AccountState>
     {

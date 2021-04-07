@@ -1,10 +1,10 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Cryptography;
+using Cron.Cryptography;
 using System;
 using System.Collections.Generic;
 
-namespace Neo.UnitTests.Cryptography
+namespace Cron.UnitTests.Cryptography
 {
     [TestClass]
     public class UT_Base58

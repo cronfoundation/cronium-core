@@ -1,20 +1,20 @@
 ﻿using Akka.Actor;
 using Akka.Configuration;
-using Neo.Cryptography;
-using Neo.IO;
-using Neo.IO.Actors;
-using Neo.Ledger;
-using Neo.Network.P2P;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.Plugins;
-using Neo.Wallets;
+using Cron.Cryptography;
+using Cron.IO;
+using Cron.IO.Actors;
+using Cron.Ledger;
+using Cron.Network.P2P;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
+using Cron.Plugins;
+using Cron.Wallets;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Consensus
+namespace Cron.Consensus
 {
     public sealed class ConsensusService : UntypedActor
     {

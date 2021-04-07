@@ -1,8 +1,8 @@
-﻿using Neo.Cryptography;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.SmartContract;
-using Neo.VM;
+﻿using Cron.Cryptography;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
+using Cron.SmartContract;
+using Cron.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ using System.Numerics;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using ECPoint = Neo.Cryptography.ECC.ECPoint;
+using ECPoint = Cron.Cryptography.ECC.ECPoint;
 
-namespace Neo.Wallets
+namespace Cron.Wallets
 {
     public abstract class Wallet : IDisposable
     {

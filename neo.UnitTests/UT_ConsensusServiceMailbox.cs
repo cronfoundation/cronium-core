@@ -4,13 +4,13 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Moq;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.Network.P2P;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
+using Cron.Network.P2P;
 using Akka.Configuration;
-using Neo.Consensus;
+using Cron.Consensus;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     [TestClass]
     public class UT_ConsensusServiceMailbox : TestKit

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Neo.Cryptography;
-using Neo.IO;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.SmartContract;
+using Cron.Cryptography;
+using Cron.IO;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
+using Cron.SmartContract;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,7 +12,7 @@ using System.Reflection;
 using System.Security;
 using System.Security.Cryptography;
 
-namespace Neo.Wallets.SQLite
+namespace Cron.Wallets.SQLite
 {
     public class UserWallet : Wallet
     {

@@ -1,7 +1,7 @@
-﻿using Neo.Network.P2P.Payloads;
+﻿using Cron.Network.P2P.Payloads;
 using System.Collections.Generic;
 
-namespace Neo.Plugins
+namespace Cron.Plugins
 {
     public interface IPolicyPlugin
     {

@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
 
-namespace Neo.Cryptography
+namespace Cron.Cryptography
 {
     [ComVisible(true)]
     public class RIPEMD160Managed : HashAlgorithm

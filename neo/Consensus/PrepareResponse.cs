@@ -1,7 +1,7 @@
-﻿using Neo.IO;
+﻿using Cron.IO;
 using System.IO;
 
-namespace Neo.Consensus
+namespace Cron.Consensus
 {
     public class PrepareResponse : ConsensusMessage
     {

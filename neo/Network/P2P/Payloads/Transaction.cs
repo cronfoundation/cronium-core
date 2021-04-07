@@ -1,18 +1,18 @@
-using Neo.Cryptography;
-using Neo.IO;
-using Neo.IO.Caching;
-using Neo.IO.Json;
-using Neo.Ledger;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.VM;
+using Cron.Cryptography;
+using Cron.IO;
+using Cron.IO.Caching;
+using Cron.IO.Json;
+using Cron.Ledger;
+using Cron.Persistence;
+using Cron.SmartContract;
+using Cron.VM;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public abstract class Transaction : IEquatable<Transaction>, IInventory
     {

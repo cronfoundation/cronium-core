@@ -1,4 +1,4 @@
-﻿namespace Neo.Wallets
+﻿namespace Cron.Wallets
 {
     internal static class DataEntryPrefix
     {

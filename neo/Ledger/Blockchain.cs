@@ -1,23 +1,23 @@
 ﻿using Akka.Actor;
 using Akka.Configuration;
-using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.IO.Actors;
-using Neo.IO.Caching;
-using Neo.Network.P2P;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.Plugins;
-using Neo.SmartContract;
-using Neo.Trie.MPT;
-using Neo.VM;
+using Cron.Cryptography.ECC;
+using Cron.IO;
+using Cron.IO.Actors;
+using Cron.IO.Caching;
+using Cron.Network.P2P;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
+using Cron.Plugins;
+using Cron.SmartContract;
+using Cron.Trie.MPT;
+using Cron.VM;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public sealed partial class Blockchain : UntypedActor
     {
@@ -118,7 +118,7 @@ namespace Neo.Ledger
         private const int MemoryPoolMaxTransactions = 50_000;
         private const int MaxTxToReverifyPerIdle = 10;
         private static readonly object lockObj = new object();
-        private readonly NeoSystem system;
+        private readonly CronSystem system;
         private readonly List<UInt256> header_index = new List<UInt256>();
         private uint stored_header_count = 0;
         private readonly ConcurrentDictionary<UInt256, Block> block_cache = new ConcurrentDictionary<UInt256, Block>();
@@ -148,7 +148,7 @@ namespace Neo.Ledger
             GenesisBlock.RebuildMerkleRoot();
         }
 
-        public Blockchain(NeoSystem system, Store store)
+        public Blockchain(CronSystem system, Store store)
         {
             this.system = system;
             this.MemPool = new MemoryPool(system, MemoryPoolMaxTransactions);
@@ -715,7 +715,7 @@ namespace Neo.Ledger
             }
         }
 
-        public static Props Props(NeoSystem system, Store store)
+        public static Props Props(CronSystem system, Store store)
         {
             return Akka.Actor.Props.Create(() => new Blockchain(system, store)).WithMailbox("blockchain-mailbox");
         }

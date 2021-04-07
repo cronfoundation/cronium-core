@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.IO;
-using Neo.Network.P2P.Payloads;
+using Cron.IO;
+using Cron.Network.P2P.Payloads;
 using System;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     [TestClass]
     public class UT_PublishTransaction

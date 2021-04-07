@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Neo.IO.Json
+namespace Cron.IO.Json
 {
     public class JObject
     {

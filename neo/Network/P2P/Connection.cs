@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.WebSockets;
 using System.Threading;
 
-namespace Neo.Network.P2P
+namespace Cron.Network.P2P
 {
     public abstract class Connection : UntypedActor
     {

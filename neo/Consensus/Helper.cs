@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
 using System.Runtime.CompilerServices;
 
-namespace Neo.Consensus
+namespace Cron.Consensus
 {
     internal static class Helper
     {

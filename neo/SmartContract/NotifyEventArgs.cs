@@ -1,7 +1,7 @@
-﻿using Neo.VM;
+﻿using Cron.VM;
 using System;
 
-namespace Neo.SmartContract
+namespace Cron.SmartContract
 {
     public class NotifyEventArgs : EventArgs
     {

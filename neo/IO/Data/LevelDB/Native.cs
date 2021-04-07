@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace Neo.IO.Data.LevelDB
+namespace Cron.IO.Data.LevelDB
 {
     public enum CompressionType : byte
     {

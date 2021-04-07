@@ -1,16 +1,16 @@
-﻿using Neo.Network.P2P.Payloads;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using Akka.Util.Internal;
-using Neo.Network.P2P;
-using Neo.Persistence;
-using Neo.Plugins;
+using Cron.Network.P2P;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
+using Cron.Plugins;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public class MemoryPool : IReadOnlyCollection<Transaction>
     {
@@ -26,7 +26,7 @@ namespace Neo.Ledger
         private static readonly double MaxSecondsToReverifyHighPrioTxPerIdle = (double)Blockchain.SecondsPerBlock / 15;
         private static readonly double MaxSecondsToReverifyLowPrioTxPerIdle = (double)Blockchain.SecondsPerBlock / 30;
 
-        private readonly NeoSystem _system;
+        private readonly CronSystem _system;
 
         //
         /// <summary>
@@ -102,7 +102,7 @@ namespace Neo.Ledger
 
         public int UnVerifiedCount => _unverifiedTransactions.Count;
 
-        public MemoryPool(NeoSystem system, int capacity)
+        public MemoryPool(CronSystem system, int capacity)
         {
             _system = system;
             Capacity = capacity;

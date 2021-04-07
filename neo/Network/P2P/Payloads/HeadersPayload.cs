@@ -1,9 +1,9 @@
-﻿using Neo.IO;
+﻿using Cron.IO;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class HeadersPayload : ISerializable
     {

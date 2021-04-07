@@ -1,12 +1,12 @@
-using Neo.Cryptography;
-using Neo.IO;
-using Neo.IO.Json;
-using Neo.Persistence;
-using Neo.SmartContract;
+using Cron.Cryptography;
+using Cron.IO;
+using Cron.IO.Json;
+using Cron.Persistence;
+using Cron.SmartContract;
 using System;
 using System.IO;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class StateRoot : ISerializable, IInventory
     {

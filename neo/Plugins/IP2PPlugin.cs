@@ -1,7 +1,7 @@
-﻿using Neo.Network.P2P;
-using Neo.Network.P2P.Payloads;
+﻿using Cron.Network.P2P;
+using Cron.Network.P2P.Payloads;
 
-namespace Neo.Plugins
+namespace Cron.Plugins
 {
     public interface IP2PPlugin
     {

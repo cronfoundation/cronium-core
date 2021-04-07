@@ -1,10 +1,10 @@
-﻿using Neo.Cryptography;
-using Neo.IO;
+﻿using Cron.Cryptography;
+using Cron.IO;
 using System;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public class StorageKey : IEquatable<StorageKey>, ISerializable
     {

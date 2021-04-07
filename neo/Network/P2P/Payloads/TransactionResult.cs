@@ -1,4 +1,4 @@
-﻿namespace Neo.Network.P2P.Payloads
+﻿namespace Cron.Network.P2P.Payloads
 {
     public class TransactionResult
     {

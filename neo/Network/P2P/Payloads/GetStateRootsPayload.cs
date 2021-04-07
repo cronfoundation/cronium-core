@@ -1,8 +1,8 @@
-using Neo.IO;
+using Cron.IO;
 using System;
 using System.IO;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class GetStateRootsPayload : ISerializable
     {

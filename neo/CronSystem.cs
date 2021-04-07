@@ -1,20 +1,20 @@
 ﻿using Akka.Actor;
-using Neo.Consensus;
-using Neo.Ledger;
-using Neo.Network.P2P;
-using Neo.Network.RPC;
-using Neo.Persistence;
-using Neo.Plugins;
-using Neo.Wallets;
+using Cron.Consensus;
+using Cron.Ledger;
+using Cron.Network.P2P;
+using Cron.Network.RPC;
+using Cron.Persistence;
+using Cron.Plugins;
+using Cron.Wallets;
 using System;
 using System.Net;
 using System.Threading;
 
-namespace Neo
+namespace Cron
 {
-    public class NeoSystem : IDisposable
+    public class CronSystem : IDisposable
     {
-        public ActorSystem ActorSystem { get; } = ActorSystem.Create(nameof(NeoSystem),
+        public ActorSystem ActorSystem { get; } = ActorSystem.Create(nameof(CronSystem),
             $"akka {{ log-dead-letters = off }}" +
             $"blockchain-mailbox {{ mailbox-type: \"{typeof(BlockchainMailbox).AssemblyQualifiedName}\" }}" +
             $"task-manager-mailbox {{ mailbox-type: \"{typeof(TaskManagerMailbox).AssemblyQualifiedName}\" }}" +
@@ -31,7 +31,7 @@ namespace Neo
         private Peer.Start start_message = null;
         private bool suspend = false;
 
-        public NeoSystem(Store store)
+        public CronSystem(Store store)
         {
             this.store = store;
             Plugin.LoadPlugins(this);

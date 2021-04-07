@@ -1,10 +1,10 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Iterators;
-using Neo.VM.Types;
+using Cron.SmartContract.Iterators;
+using Cron.VM.Types;
 using System.Numerics;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
 
     [TestClass]

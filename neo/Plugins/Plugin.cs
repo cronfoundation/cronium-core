@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Neo.Network.P2P.Payloads;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 
-namespace Neo.Plugins
+namespace Cron.Plugins
 {
     public abstract class Plugin
     {
@@ -24,7 +24,7 @@ namespace Neo.Plugins
 
         private static int suspend = 0;
 
-        protected static NeoSystem System { get; private set; }
+        protected static CronSystem System { get; private set; }
         public virtual string Name => GetType().Name;
         public virtual Version Version => GetType().Assembly.GetName().Version;
         public virtual string ConfigFile => Path.Combine(pluginsPath, GetType().Assembly.GetName().Name, "config.json");
@@ -91,7 +91,7 @@ namespace Neo.Plugins
             return new ConfigurationBuilder().AddJsonFile(ConfigFile, optional: true).Build().GetSection("PluginConfiguration");
         }
 
-        internal static void LoadPlugins(NeoSystem system)
+        internal static void LoadPlugins(CronSystem system)
         {
             System = system;
             if (!Directory.Exists(pluginsPath)) return;

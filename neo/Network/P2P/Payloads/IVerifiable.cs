@@ -1,9 +1,9 @@
-﻿using Neo.IO;
-using Neo.Persistence;
-using Neo.VM;
+﻿using Cron.IO;
+using Cron.Persistence;
+using Cron.VM;
 using System.IO;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public interface IVerifiable : ISerializable, IScriptContainer
     {

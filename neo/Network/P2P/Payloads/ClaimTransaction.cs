@@ -1,13 +1,13 @@
-﻿using Neo.IO;
-using Neo.IO.Json;
-using Neo.Ledger;
-using Neo.Persistence;
+﻿using Cron.IO;
+using Cron.IO.Json;
+using Cron.Ledger;
+using Cron.Persistence;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class ClaimTransaction : Transaction
     {

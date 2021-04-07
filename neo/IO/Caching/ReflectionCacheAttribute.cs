@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Neo.IO.Caching
+namespace Cron.IO.Caching
 {
     public class ReflectionCacheAttribute : Attribute
     {

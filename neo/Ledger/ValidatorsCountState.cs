@@ -1,7 +1,7 @@
-﻿using Neo.IO;
+﻿using Cron.IO;
 using System.IO;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public class ValidatorsCountState : StateBase, ICloneable<ValidatorsCountState>
     {

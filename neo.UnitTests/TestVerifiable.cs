@@ -1,9 +1,9 @@
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
 using System;
 using System.IO;
 
-namespace Neo.UnitTests
+namespace Cron.UnitTests
 {
     public class TestVerifiable : IVerifiable
     {

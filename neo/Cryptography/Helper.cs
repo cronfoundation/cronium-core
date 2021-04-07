@@ -1,5 +1,5 @@
-﻿using Neo.IO;
-using Neo.Network.P2P.Payloads;
+﻿using Cron.IO;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 
-namespace Neo.Cryptography
+namespace Cron.Cryptography
 {
     public static class Helper
     {

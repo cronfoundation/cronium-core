@@ -1,10 +1,10 @@
-﻿using Neo.Cryptography;
-using Neo.Network.P2P;
-using Neo.Network.P2P.Payloads;
+﻿using Cron.Cryptography;
+using Cron.Network.P2P;
+using Cron.Network.P2P.Payloads;
 using System;
 using System.Linq;
 
-namespace Neo.Wallets
+namespace Cron.Wallets
 {
     public static class Helper
     {

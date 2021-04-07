@@ -1,8 +1,8 @@
-﻿using Neo.IO;
-using Neo.IO.Data.LevelDB;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
+﻿using Cron.IO;
+using Cron.IO.Data.LevelDB;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Threading;
 
-namespace Neo.Wallets
+namespace Cron.Wallets
 {
     public class WalletIndexer : IDisposable
     {

@@ -1,6 +1,6 @@
-using Neo.VM;
+using Cron.VM;
 
-namespace Neo.SmartContract.Iterators
+namespace Cron.SmartContract.Iterators
 {
     internal class ConcatenatedIterator : IIterator
     {

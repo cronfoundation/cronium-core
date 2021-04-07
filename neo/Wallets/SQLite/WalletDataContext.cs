@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
-namespace Neo.Wallets.SQLite
+namespace Cron.Wallets.SQLite
 {
     internal class WalletDataContext : DbContext
     {

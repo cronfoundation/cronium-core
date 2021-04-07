@@ -1,6 +1,6 @@
-﻿using Neo.VM;
+﻿using Cron.VM;
 
-namespace Neo.SmartContract.Enumerators
+namespace Cron.SmartContract.Enumerators
 {
     internal class ConcatenatedEnumerator : IEnumerator
     {

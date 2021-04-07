@@ -1,6 +1,6 @@
-﻿using Neo.IO.Caching;
+﻿using Cron.IO.Caching;
 
-namespace Neo.Consensus
+namespace Cron.Consensus
 {
     public enum ConsensusMessageType : byte
     {

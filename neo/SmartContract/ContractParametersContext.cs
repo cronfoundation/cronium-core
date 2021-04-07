@@ -1,9 +1,9 @@
-﻿using Neo.Cryptography.ECC;
-using Neo.IO.Json;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.VM;
+﻿using Cron.Cryptography.ECC;
+using Cron.IO.Json;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
+using Cron.VM;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Neo.SmartContract
+namespace Cron.SmartContract
 {
     public class ContractParametersContext
     {

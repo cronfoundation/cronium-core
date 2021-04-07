@@ -1,8 +1,8 @@
-﻿using Neo.IO;
-using Neo.IO.Json;
+﻿using Cron.IO;
+using Cron.IO.Json;
 using System.IO;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public class BlockState : StateBase, ICloneable<BlockState>
     {

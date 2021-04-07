@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
-namespace Neo.Cryptography
+namespace Cron.Cryptography
 {
     public sealed class Murmur3 : HashAlgorithm
     {

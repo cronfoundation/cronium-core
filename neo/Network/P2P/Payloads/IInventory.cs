@@ -1,6 +1,6 @@
-﻿using Neo.Persistence;
+﻿using Cron.Persistence;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public interface IInventory : IVerifiable
     {

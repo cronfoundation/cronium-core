@@ -1,6 +1,6 @@
-﻿using Neo.Network.P2P.Payloads;
+﻿using Cron.Network.P2P.Payloads;
 
-namespace Neo.IO.Caching
+namespace Cron.IO.Caching
 {
     internal class RelayCache : FIFOCache<UInt256, IInventory>
     {

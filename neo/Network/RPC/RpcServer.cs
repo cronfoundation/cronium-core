@@ -15,19 +15,19 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Server.Kestrel.Https;
 using Microsoft.Extensions.DependencyInjection;
-using Neo.IO;
-using Neo.IO.Json;
-using Neo.Ledger;
-using Neo.Network.P2P;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.Plugins;
-using Neo.SmartContract;
-using Neo.Trie.MPT;
-using Neo.VM;
-using Neo.Wallets;
+using Cron.IO;
+using Cron.IO.Json;
+using Cron.Ledger;
+using Cron.Network.P2P;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
+using Cron.Plugins;
+using Cron.SmartContract;
+using Cron.Trie.MPT;
+using Cron.VM;
+using Cron.Wallets;
 
-namespace Neo.Network.RPC
+namespace Cron.Network.RPC
 {
     public sealed class RpcServer : IDisposable
     {
@@ -78,9 +78,9 @@ namespace Neo.Network.RPC
         public int MaxConcurrentConnections { get; }
 
         private IWebHost host;
-        private readonly NeoSystem system;
+        private readonly CronSystem system;
 
-        public RpcServer(NeoSystem system, Wallet wallet = null, Fixed8 extraGasInvoke = default)
+        public RpcServer(CronSystem system, Wallet wallet = null, Fixed8 extraGasInvoke = default)
         {
             this.system = system;
             this.Wallet = wallet;

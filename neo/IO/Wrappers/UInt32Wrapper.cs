@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Neo.IO.Wrappers
+namespace Cron.IO.Wrappers
 {
     public sealed class UInt32Wrapper : SerializableWrapper<uint>, IEquatable<UInt32Wrapper>
     {

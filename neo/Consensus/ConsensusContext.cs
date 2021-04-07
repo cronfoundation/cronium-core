@@ -1,18 +1,18 @@
-using Neo.Cryptography;
-using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.Plugins;
-using Neo.SmartContract;
-using Neo.Wallets;
+using Cron.Cryptography;
+using Cron.Cryptography.ECC;
+using Cron.IO;
+using Cron.Ledger;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
+using Cron.Plugins;
+using Cron.SmartContract;
+using Cron.Wallets;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Consensus
+namespace Cron.Consensus
 {
     public class ConsensusContext : IConsensusContext
     {

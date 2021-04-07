@@ -1,10 +1,10 @@
-﻿using Neo.IO;
-using Neo.IO.Json;
-using Neo.SmartContract;
-using Neo.VM;
+﻿using Cron.IO;
+using Cron.IO.Json;
+using Cron.SmartContract;
+using Cron.VM;
 using System.IO;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class Witness : ISerializable
     {

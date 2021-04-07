@@ -1,10 +1,10 @@
-﻿using Neo.Cryptography;
-using Neo.IO;
+﻿using Cron.Cryptography;
+using Cron.IO;
 using System.Collections;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public class MerkleBlockPayload : BlockBase
     {

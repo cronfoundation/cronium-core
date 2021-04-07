@@ -1,7 +1,7 @@
-﻿using Neo.SmartContract.Enumerators;
-using Neo.VM;
+﻿using Cron.SmartContract.Enumerators;
+using Cron.VM;
 
-namespace Neo.SmartContract.Iterators
+namespace Cron.SmartContract.Iterators
 {
     internal interface IIterator : IEnumerator
     {

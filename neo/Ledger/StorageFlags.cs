@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     [Flags]
     public enum StorageFlags : byte

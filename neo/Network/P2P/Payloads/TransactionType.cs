@@ -1,8 +1,8 @@
 ﻿#pragma warning disable CS0612
 
-using Neo.IO.Caching;
+using Cron.IO.Caching;
 
-namespace Neo.Network.P2P.Payloads
+namespace Cron.Network.P2P.Payloads
 {
     public enum TransactionType : byte
     {

@@ -1,11 +1,11 @@
-using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
+using Cron.Cryptography.ECC;
+using Cron.IO;
+using Cron.Network.P2P.Payloads;
+using Cron.Persistence;
 using System;
 using System.Collections.Generic;
 
-namespace Neo.Consensus
+namespace Cron.Consensus
 {
     public interface IConsensusContext : IDisposable, ISerializable
     {

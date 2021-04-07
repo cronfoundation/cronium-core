@@ -1,9 +1,9 @@
-﻿using Neo.IO;
-using Neo.IO.Caching;
-using Neo.IO.Data.LevelDB;
+﻿using Cron.IO;
+using Cron.IO.Caching;
+using Cron.IO.Data.LevelDB;
 using System;
 
-namespace Neo.Persistence.LevelDB
+namespace Cron.Persistence.LevelDB
 {
     internal class DbMetaDataCache<T> : MetaDataCache<T>
         where T : class, ICloneable<T>, ISerializable, new()

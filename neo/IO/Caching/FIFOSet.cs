@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 
-namespace Neo.IO.Caching
+namespace Cron.IO.Caching
 {
     internal class FIFOSet<T> : IReadOnlyCollection<T> where T : IEquatable<T>
     {

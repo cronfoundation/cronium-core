@@ -3,7 +3,7 @@ using System.Linq;
 using System.Numerics;
 using System.Security.Cryptography;
 
-namespace Neo.Cryptography.ECC
+namespace Cron.Cryptography.ECC
 {
     public class ECDsa
     {

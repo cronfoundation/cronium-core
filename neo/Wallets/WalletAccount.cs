@@ -1,6 +1,6 @@
-﻿using Neo.SmartContract;
+﻿using Cron.SmartContract;
 
-namespace Neo.Wallets
+namespace Cron.Wallets
 {
     public abstract class WalletAccount
     {

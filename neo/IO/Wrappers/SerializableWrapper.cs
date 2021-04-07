@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Neo.IO.Wrappers
+namespace Cron.IO.Wrappers
 {
     public abstract class SerializableWrapper<T> : IEquatable<T>, IEquatable<SerializableWrapper<T>>, ISerializable
         where T : struct, IEquatable<T>

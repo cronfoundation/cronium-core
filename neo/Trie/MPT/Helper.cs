@@ -1,6 +1,6 @@
 using System;
 
-namespace Neo.Trie.MPT
+namespace Cron.Trie.MPT
 {
     internal static class Helper
     {

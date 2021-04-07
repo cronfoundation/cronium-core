@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Neo.Network.RPC
+namespace Cron.Network.RPC
 {
     public class RpcException : Exception
     {

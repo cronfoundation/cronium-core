@@ -1,8 +1,8 @@
-﻿using Neo.IO.Json;
-using Neo.SmartContract;
+﻿using Cron.IO.Json;
+using Cron.SmartContract;
 using System.Linq;
 
-namespace Neo.Wallets.NEP6
+namespace Cron.Wallets.NEP6
 {
     internal class NEP6Contract : Contract
     {

@@ -1,8 +1,8 @@
-﻿using Neo.VM;
+﻿using Cron.VM;
 using System;
 using System.Collections.Generic;
 
-namespace Neo.SmartContract.Iterators
+namespace Cron.SmartContract.Iterators
 {
     internal class ArrayWrapper : IIterator
     {

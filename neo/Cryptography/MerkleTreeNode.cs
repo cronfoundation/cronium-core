@@ -1,4 +1,4 @@
-﻿namespace Neo.Cryptography
+﻿namespace Cron.Cryptography
 {
     internal class MerkleTreeNode
     {

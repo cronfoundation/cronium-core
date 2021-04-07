@@ -1,9 +1,9 @@
-﻿using Neo.IO;
-using Neo.IO.Caching;
+﻿using Cron.IO;
+using Cron.IO.Caching;
 using System;
 using System.IO;
 
-namespace Neo.Consensus
+namespace Cron.Consensus
 {
     public abstract class ConsensusMessage : ISerializable
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Neo.Persistence.LevelDB
+namespace Cron.Persistence.LevelDB
 {
     internal static class Prefixes
     {

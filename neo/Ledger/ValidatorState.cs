@@ -1,8 +1,8 @@
-﻿using Neo.Cryptography.ECC;
-using Neo.IO;
+﻿using Cron.Cryptography.ECC;
+using Cron.IO;
 using System.IO;
 
-namespace Neo.Ledger
+namespace Cron.Ledger
 {
     public class ValidatorState : StateBase, ICloneable<ValidatorState>
     {
