@@ -3,9 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <AssemblyName>Neo.UnitTests</AssemblyName>
-    <RootNamespace>Neo.UnitTests</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PackageId>Cron.UnitTests</PackageId>
+    <Authors>Cron.UnitTests</Authors>
+    <Company>Cron.UnitTests</Company>
+    <Product>Cron.UnitTests</Product>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,11 +27,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\neo\neo.csproj" />
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
   </ItemGroup>
 
   <ItemGroup>
-    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+    <ProjectReference Include="..\Cron\Cron.csproj" />
   </ItemGroup>
 
 </Project>

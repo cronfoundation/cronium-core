@@ -1,15 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Copyright>2018-2021 CRON Foundation, 2015-2021 The Neo Project</Copyright>
-    <AssemblyTitle>Neo</AssemblyTitle>
+    <Copyright>2018-2021 CRON Foundation, 2015-2021 The Cron Project</Copyright>
+    <AssemblyTitle>Cron</AssemblyTitle>
     <Version>2.12.4</Version>
-    <Authors>CRON Foundation, The Neo Project</Authors>
+    <Authors>CRON Foundation, The Cron Project</Authors>
     <TargetFrameworks>netstandard2.0;net47</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AssemblyName>Neo</AssemblyName>
     <PackageId>CRONIUM</PackageId>
-    <PackageTags>NEO;AntShares;Blockchain;Smart Contract;CRONIUM</PackageTags>
+    <PackageTags>Cron;AntShares;Blockchain;Smart Contract;CRONIUM</PackageTags>
     <PackageProjectUrl>https://github.com/cronfoundation/neo</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/cronfoundation/neo.git</RepositoryUrl>
@@ -18,7 +17,7 @@
     <Description>CRON</Description>
     <Product>CRON</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageReleaseNotes>The latest 2.12.x version based on Neo 2.12.x Blockchain</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">

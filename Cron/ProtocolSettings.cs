@@ -71,11 +71,11 @@ namespace Cron
             else
                 this.SeedList = new[]
                 {
-                    "seed1.neo.org:10333",
-                    "seed2.neo.org:10333",
-                    "seed3.neo.org:10333",
-                    "seed4.neo.org:10333",
-                    "seed5.neo.org:10333"
+                    "seed1.Cron.org:10333",
+                    "seed2.Cron.org:10333",
+                    "seed3.Cron.org:10333",
+                    "seed4.Cron.org:10333",
+                    "seed5.Cron.org:10333"
                 };
             Dictionary<TransactionType, Fixed8> sys_fee = new Dictionary<TransactionType, Fixed8>
             {
