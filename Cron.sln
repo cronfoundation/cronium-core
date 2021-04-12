@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cron.VM", "Cron.VM\Cron.VM.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cron.VM.Tests", "Cron.VM.Tests\Cron.VM.Tests.csproj", "{B4BAD114-0FDA-4FDB-875C-3EB2D95F7647}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cron.CLI", "..\..\Cron.CLI\cryptocean-blockchain-neo_node\Cron.CLI\Cron.CLI.csproj", "{8EE9D7D0-1368-4AF6-B1E6-854386070E07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B4BAD114-0FDA-4FDB-875C-3EB2D95F7647}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4BAD114-0FDA-4FDB-875C-3EB2D95F7647}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4BAD114-0FDA-4FDB-875C-3EB2D95F7647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EE9D7D0-1368-4AF6-B1E6-854386070E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EE9D7D0-1368-4AF6-B1E6-854386070E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EE9D7D0-1368-4AF6-B1E6-854386070E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EE9D7D0-1368-4AF6-B1E6-854386070E07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

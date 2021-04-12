@@ -20,12 +20,15 @@ using Cron.IO.Json;
 using Cron.Ledger;
 using Cron.Network.P2P;
 using Cron.Network.P2P.Payloads;
+using Cron.Network.RPC.Middleware;
 using Cron.Persistence;
 using Cron.Plugins;
 using Cron.SmartContract;
 using Cron.Trie.MPT;
 using Cron.VM;
 using Cron.Wallets;
+using Microsoft.Extensions.Configuration;
+using Serilog;
 
 namespace Cron.Network.RPC
 {
@@ -481,6 +484,18 @@ namespace Cron.Network.RPC
             }))
             .Configure(app =>
             {
+                var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                var config = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("config.json", true)
+                    .AddJsonFile($"config.{environmentName}.json", true)
+                    .Build();
+                
+                Log.Logger = new LoggerConfiguration()
+                    .ReadFrom.Configuration(config)
+                    .CreateLogger();
+                
+                app.UseMiddleware<RequestLoggingMiddleware>();
                 app.UseResponseCompression();
                 app.Run(ProcessAsync);
             })
@@ -497,6 +512,10 @@ namespace Cron.Network.RPC
                 {
                     options.Level = CompressionLevel.Fastest;
                 });
+            })
+            .ConfigureLogging((ctx, logging) =>
+            {
+                logging.AddSerilog(dispose: true);
             })
             .Build();
 
