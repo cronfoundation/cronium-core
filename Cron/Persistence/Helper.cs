@@ -2,7 +2,9 @@
 using Cron.Ledger;
 using Cron.Network.P2P.Payloads;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using System.Linq;
+using Cron.IO.Caching;
 
 namespace Cron.Persistence
 {
@@ -27,15 +29,19 @@ namespace Cron.Persistence
             if (hash == null) return null;
             return persistence.GetBlock(hash);
         }
-
+        
         public static Block GetBlock(this IPersistence persistence, UInt256 hash)
         {
-            BlockState state = persistence.Blocks.TryGet(hash);
+            var state = persistence.Blocks.TryGet(hash);
             if (state == null) return null;
-            if (!state.TrimmedBlock.IsBlock) return null;
+            if (!state.TrimmedBlock.IsBlock)
+            {
+                return null;
+            }
+            
             return state.TrimmedBlock.GetBlock(persistence.Transactions);
         }
-
+        
         public static IEnumerable<ValidatorState> GetEnrollments(this IPersistence persistence)
         {
             HashSet<ECPoint> sv = new HashSet<ECPoint>(Blockchain.StandbyValidators);

@@ -80,7 +80,9 @@ namespace Cron.Network.P2P.Payloads
                 return _network_fee;
             }
         }
-
+        
+        public TransactionData Data { get; set; }
+        
         private IReadOnlyDictionary<CoinReference, TransactionOutput> _references;
         public IReadOnlyDictionary<CoinReference, TransactionOutput> References
         {
@@ -92,6 +94,7 @@ namespace Cron.Network.P2P.Payloads
                     foreach (var group in Inputs.GroupBy(p => p.PrevHash))
                     {
                         Transaction tx = Blockchain.Singleton.Store.GetTransaction(group.Key);
+                        
                         if (tx == null) return null;
                         foreach (var reference in group.Select(p => new
                         {
@@ -259,6 +262,7 @@ namespace Cron.Network.P2P.Payloads
             json["sys_fee"] = SystemFee.ToString();
             json["net_fee"] = NetworkFee.ToString();
             json["scripts"] = Witnesses.Select(p => p.ToJson()).ToArray();
+            json["data"] = Data.ToJson();
             return json;
         }
 
