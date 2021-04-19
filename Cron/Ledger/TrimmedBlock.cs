@@ -21,7 +21,7 @@ namespace Cron.Ledger
                 var tx = transactions[i];
                 if (tx.Data == null)
                 {
-                    var globalIndex = Index + i;
+                    var globalIndex = ulong.Parse($"{Index}{i}");
                     tx.Data = TransactionData.Create(Hash, Index, globalIndex, i);
                 }
             }
