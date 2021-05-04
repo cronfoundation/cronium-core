@@ -9,9 +9,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PackageId>CRONIUM</PackageId>
     <PackageTags>Cron;AntShares;Blockchain;Smart Contract;CRONIUM</PackageTags>
-    <PackageProjectUrl>https://github.com/cronfoundation/neo</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/cronfoundation/cronium-core</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/cronfoundation/neo.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/cronfoundation/cronium-core.git</RepositoryUrl>
     <RootNamespace>CRON</RootNamespace>
     <Company>The CRON Project</Company>
     <Description>CRON</Description>
