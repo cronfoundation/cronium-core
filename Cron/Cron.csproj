@@ -18,7 +18,7 @@
     <Product>CRON</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <PackageVersion>2.14.1-dev</PackageVersion>
+    <PackageVersion>2.14.2-dev</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
