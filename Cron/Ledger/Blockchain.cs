@@ -555,8 +555,19 @@ namespace Cron.Ledger
                             break;
 #pragma warning restore CS0612
                         case IssueTransaction _:
-                            foreach (TransactionResult result in tx.GetTransactionResults().Where(p => p.Amount < Fixed8.Zero))
-                                snapshot.Assets.GetAndChange(result.AssetId).Available -= result.Amount;
+                            var assetTransactions = tx.GetTransactionResults().Where(p => p.Amount < Fixed8.Zero);
+                            foreach (var result in assetTransactions)
+                            {
+                                var asset = snapshot.Assets.TryGet(result.AssetId);
+                                if (asset != null)
+                                {
+                                    asset.Available -= result.Amount;
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"Asset not found with key {result.AssetId}");
+                                }
+                            }
                             break;
                         case ClaimTransaction _:
                             foreach (CoinReference input in ((ClaimTransaction)tx).Claims)
