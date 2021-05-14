@@ -13,12 +13,16 @@ namespace Cron.Ledger
 
         public bool IsBlock => Hashes.Length > 0;
 
-        public Block GetBlock(DataCache<UInt256, TransactionState> cache)
+        public Block GetBlock(DataCache<UInt256, TransactionState> cache, DataCache<UInt256, AssetState> assetCache)
         {
             var transactions = Hashes.Select(p => cache[p].Transaction).ToArray();
             for (uint i = 0; i < transactions.Length; i++)
             {
                 var tx = transactions[i];
+                if (tx.Type == TransactionType.InvocationTransaction)
+                {
+                    ((InvocationTransaction)tx).SetAsset(assetCache);
+                }
                 if (tx.Data == null)
                 {
                     var globalIndex = ulong.Parse($"{((800*Index) + i)}");
