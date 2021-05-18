@@ -13,6 +13,33 @@ namespace Cron.Ledger
 
         public bool IsBlock => Hashes.Length > 0;
 
+        public Block GetBlock(DataCache<UInt256, TransactionState> cache)
+        {
+            var transactions = Hashes.Select(p => cache[p].Transaction).ToArray();
+            for (uint i = 0; i < transactions.Length; i++)
+            {
+                var tx = transactions[i];
+                if (tx.Data == null)
+                {
+                    var globalIndex = ulong.Parse($"{((800*Index) + i)}");
+                    tx.Data = TransactionData.Create(Hash, Index, globalIndex, i);
+                }
+            }
+
+            return new Block
+            {
+                Version = Version,
+                PrevHash = PrevHash,
+                MerkleRoot = MerkleRoot,
+                Timestamp = Timestamp,
+                Index = Index,
+                ConsensusData = ConsensusData,
+                NextConsensus = NextConsensus,
+                Witness = Witness,
+                Transactions = transactions
+            };
+        }
+        
         public Block GetBlock(DataCache<UInt256, TransactionState> cache, DataCache<UInt256, AssetState> assetCache)
         {
             var transactions = Hashes.Select(p => cache[p].Transaction).ToArray();
