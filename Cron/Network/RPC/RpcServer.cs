@@ -484,16 +484,17 @@ namespace Cron.Network.RPC
             }))
             .Configure(app =>
             {
-                var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-                var config = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("config.json", true)
-                    .AddJsonFile($"config.{environmentName}.json", true)
-                    .Build();
-                
-                Log.Logger = new LoggerConfiguration()
-                    .ReadFrom.Configuration(config)
-                    .CreateLogger();
+                // TODO : make own log file for RPC requests
+                // var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                // var config = new ConfigurationBuilder()
+                //     .SetBasePath(Directory.GetCurrentDirectory())
+                //     .AddJsonFile("config.json", true)
+                //     .AddJsonFile($"config.{environmentName}.json", true)
+                //     .Build();
+                //
+                // Log.Logger = new LoggerConfiguration()
+                //     .ReadFrom.Configuration(config)
+                //     .CreateLogger();
                 
                 app.UseMiddleware<RequestLoggingMiddleware>();
                 app.UseResponseCompression();
@@ -513,10 +514,11 @@ namespace Cron.Network.RPC
                     options.Level = CompressionLevel.Fastest;
                 });
             })
-            .ConfigureLogging((ctx, logging) =>
-            {
-                logging.AddSerilog(dispose: true);
-            })
+            // TODO : make own log file for RPC requests
+            // .ConfigureLogging((ctx, logging) =>
+            // {
+            //     logging.AddSerilog(dispose: true);
+            // })
             .Build();
 
             host.Start();
