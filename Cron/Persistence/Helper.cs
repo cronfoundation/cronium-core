@@ -33,13 +33,17 @@ namespace Cron.Persistence
         public static Block GetBlock(this IPersistence persistence, UInt256 hash)
         {
             var state = persistence.Blocks.TryGet(hash);
-            if (state == null) return null;
+            if (state == null)
+            {
+                return null;
+            }
+            
             if (!state.TrimmedBlock.IsBlock)
             {
                 return null;
             }
             
-            return state.TrimmedBlock.GetBlock(persistence.Transactions);
+            return state.TrimmedBlock.GetBlock(persistence.Transactions, persistence.Assets);
         }
         
         public static IEnumerable<ValidatorState> GetEnrollments(this IPersistence persistence)

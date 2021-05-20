@@ -164,7 +164,7 @@ namespace Cron.Network.RPC
         {
             switch (method)
             {
-                case "getaccountstate":
+                case "getaccountstate_old":
                     {
                         UInt160 script_hash = _params[0].AsString().ToScriptHash();
                         return GetAccountState(script_hash);
@@ -484,16 +484,17 @@ namespace Cron.Network.RPC
             }))
             .Configure(app =>
             {
-                var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-                var config = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("config.json", true)
-                    .AddJsonFile($"config.{environmentName}.json", true)
-                    .Build();
-                
-                Log.Logger = new LoggerConfiguration()
-                    .ReadFrom.Configuration(config)
-                    .CreateLogger();
+                // TODO : make own log file for RPC requests
+                // var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                // var config = new ConfigurationBuilder()
+                //     .SetBasePath(Directory.GetCurrentDirectory())
+                //     .AddJsonFile("config.json", true)
+                //     .AddJsonFile($"config.{environmentName}.json", true)
+                //     .Build();
+                //
+                // Log.Logger = new LoggerConfiguration()
+                //     .ReadFrom.Configuration(config)
+                //     .CreateLogger();
                 
                 app.UseMiddleware<RequestLoggingMiddleware>();
                 app.UseResponseCompression();
@@ -513,10 +514,11 @@ namespace Cron.Network.RPC
                     options.Level = CompressionLevel.Fastest;
                 });
             })
-            .ConfigureLogging((ctx, logging) =>
-            {
-                logging.AddSerilog(dispose: true);
-            })
+            // TODO : make own log file for RPC requests
+            // .ConfigureLogging((ctx, logging) =>
+            // {
+            //     logging.AddSerilog(dispose: true);
+            // })
             .Build();
 
             host.Start();
@@ -544,21 +546,22 @@ namespace Cron.Network.RPC
             Block block;
             if (key is JNumber)
             {
-                uint index = uint.Parse(key.AsString());
+                var index = uint.Parse(key.AsString());
                 block = Blockchain.Singleton.Store.GetBlock(index);
             }
             else
             {
-                UInt256 hash = UInt256.Parse(key.AsString());
+                var hash = UInt256.Parse(key.AsString());
                 block = Blockchain.Singleton.Store.GetBlock(hash);
             }
             if (block == null)
                 throw new RpcException(-100, "Unknown block");
+            
             if (verbose)
             {
-                JObject json = block.ToJson();
+                var json = block.ToJson();
                 json["confirmations"] = Blockchain.Singleton.Height - block.Index + 1;
-                UInt256 hash = Blockchain.Singleton.Store.GetNextBlockHash(block.Hash);
+                var hash = Blockchain.Singleton.Store.GetNextBlockHash(block.Hash);
                 if (hash != null)
                     json["nextblockhash"] = hash.ToString();
                 return json;
@@ -598,7 +601,7 @@ namespace Cron.Network.RPC
 
             if (verbose)
             {
-                JObject json = header.ToJson();
+                var json = header.ToJson();
                 json["confirmations"] = Blockchain.Singleton.Height - header.Index + 1;
                 UInt256 hash = Blockchain.Singleton.Store.GetNextBlockHash(header.Hash);
                 if (hash != null)
@@ -667,16 +670,20 @@ namespace Cron.Network.RPC
 
         private JObject GetRawTransaction(UInt256 hash, bool verbose)
         {
-            Transaction tx = Blockchain.Singleton.GetTransaction(hash);
+            var tx = Blockchain.Singleton.GetTransaction(hash);
             if (tx == null)
                 throw new RpcException(-100, "Unknown transaction");
             if (verbose)
             {
-                JObject json = tx.ToJson();
-                uint? height = Blockchain.Singleton.Store.GetTransactions().TryGet(hash)?.BlockIndex;
+                if (tx.Type == TransactionType.InvocationTransaction)
+                {
+                    ((InvocationTransaction)tx).SetAsset(Blockchain.Singleton.Store.GetAssets());
+                }
+                var json = tx.ToJson();
+                var height = Blockchain.Singleton.Store.GetTransactions().TryGet(hash)?.BlockIndex;
                 if (height != null)
                 {
-                    Header header = Blockchain.Singleton.Store.GetHeader((uint)height);
+                    var header = Blockchain.Singleton.Store.GetHeader((uint)height);
                     json["blockhash"] = header.Hash.ToString();
                     json["confirmations"] = Blockchain.Singleton.Height - header.Index + 1;
                     json["blocktime"] = header.Timestamp;

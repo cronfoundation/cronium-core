@@ -9,6 +9,7 @@ using Cron.Wallets;
 using System;
 using System.Net;
 using System.Threading;
+using Cron.Interface;
 
 namespace Cron
 {
@@ -31,8 +32,11 @@ namespace Cron
         private Peer.Start start_message = null;
         private bool suspend = false;
 
-        public CronSystem(Store store)
+        private readonly ICronLogger _logger;
+        
+        public CronSystem(Store store, ICronLogger logger)
         {
+            _logger = logger;
             this.store = store;
             Plugin.LoadPlugins(this);
             this.Blockchain = ActorSystem.ActorOf(Ledger.Blockchain.Props(this, store));
@@ -50,6 +54,11 @@ namespace Cron
             ActorSystem.WhenTerminated.Wait();
         }
 
+        public ICronLogger GetLogger()
+        {
+            return _logger;
+        }
+        
         public void EnsureStoped(IActorRef actor)
         {
             Inbox inbox = Inbox.Create(ActorSystem);

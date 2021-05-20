@@ -555,8 +555,19 @@ namespace Cron.Ledger
                             break;
 #pragma warning restore CS0612
                         case IssueTransaction _:
-                            foreach (TransactionResult result in tx.GetTransactionResults().Where(p => p.Amount < Fixed8.Zero))
-                                snapshot.Assets.GetAndChange(result.AssetId).Available -= result.Amount;
+                            var assetTransactions = tx.GetTransactionResults().Where(p => p.Amount < Fixed8.Zero);
+                            foreach (var result in assetTransactions)
+                            {
+                                var asset = snapshot.Assets.TryGet(result.AssetId);
+                                if (asset != null)
+                                {
+                                    asset.Available -= result.Amount;
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"Asset not found with key {result.AssetId}");
+                                }
+                            }
                             break;
                         case ClaimTransaction _:
                             foreach (CoinReference input in ((ClaimTransaction)tx).Claims)
@@ -638,8 +649,19 @@ namespace Cron.Ledger
                     snapshot.HeaderHashIndex.GetAndChange().Hash = block.Hash;
                     snapshot.HeaderHashIndex.GetAndChange().Index = block.Index;
                 }
+
                 foreach (IPersistencePlugin plugin in Plugin.PersistencePlugins)
-                    plugin.OnPersist(snapshot, all_application_executed);
+                {
+                    try
+                    {
+                        plugin.OnPersist(snapshot, all_application_executed);
+                    }
+                    catch (Exception e)
+                    {
+                        system.GetLogger()?.Error(e, $"Error while OnPersis into plugin: {plugin.GetType()}");
+                    }
+                }
+
                 snapshot.Commit();
                 List<Exception> commitExceptions = null;
                 foreach (IPersistencePlugin plugin in Plugin.PersistencePlugins)

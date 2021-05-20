@@ -4,6 +4,9 @@ using Cron.Persistence;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using Cron.IO.Caching;
+using Cron.Ledger;
 
 namespace Cron.Network.P2P.Payloads
 {
@@ -18,6 +21,8 @@ namespace Cron.Network.P2P.Payloads
 
         public override Fixed8 SystemFee => Gas;
 
+        public AssetState Asset { get; private set; }
+        
         public InvocationTransaction()
             : base(TransactionType.InvocationTransaction)
         {
@@ -53,12 +58,54 @@ namespace Cron.Network.P2P.Payloads
                 writer.Write(Gas);
         }
 
+        public void SetAsset(DataCache<UInt256, AssetState> assetCache)
+        {
+            var asset = assetCache?.TryGet(Hash);
+            if(asset == null)
+                return;
+            Asset = asset;
+        }
+        
         public override JObject ToJson()
         {
-            JObject json = base.ToJson();
+            var json = base.ToJson();
             json["script"] = Script.ToHexString();
             json["gas"] = Gas.ToString();
+            json["invocationData"] = InvocationDataJson();
             return json;
+        }
+        
+        // added for cron-tracker
+        private JObject InvocationDataJson()
+        {
+            JObject invocationData = new JObject();
+            var result = new JObject();
+
+            var stack = new JArray();
+            var stackObj = new JObject();
+            stackObj["type"] = "Integer";
+            stackObj["value"] = "1";
+            stack.Add(stackObj);
+            
+            result["state"] = 1;
+            result["gas_consumed"] = 0;
+            result["gas_cost"] = 0;
+            result["stack"] = stack;
+            
+            invocationData["result"] = result;
+            invocationData["contracts"] = new JArray();
+            invocationData["deletedContractHashes"] = new JArray();
+            invocationData["migratedContractHashes"] = new JArray();
+            invocationData["voteUpdates"] = new JArray();
+            invocationData["actions"] = new JArray();
+            invocationData["storageChanges"] = new JArray();
+
+            if (Asset != null)
+            {
+                invocationData["asset"] = Asset.ToJson();
+            }
+            
+            return invocationData;
         }
 
         public override bool Verify(Snapshot snapshot, IEnumerable<Transaction> mempool)

@@ -262,7 +262,7 @@ namespace Cron.Network.P2P.Payloads
             json["sys_fee"] = SystemFee.ToString();
             json["net_fee"] = NetworkFee.ToString();
             json["scripts"] = Witnesses.Select(p => p.ToJson()).ToArray();
-            json["data"] = Data.ToJson();
+            json["data"] = Data?.ToJson();
             return json;
         }
 
