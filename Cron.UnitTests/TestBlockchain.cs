@@ -60,7 +60,7 @@ namespace Cron.UnitTests
                 mockStore.Setup(p => p.GetSnapshot()).Returns(mockSnapshot.Object);
                 mockStore.Setup(p => p.Get(It.IsAny<byte>(), It.IsAny<byte[]>())).Returns(UInt256.Zero.ToArray());
                 Console.WriteLine("initialize CronSystem");
-                _theCronSystem = new CronSystem(mockStore.Object); // new Mock<CronSystem>(mockStore.Object);
+                _theCronSystem = new CronSystem(mockStore.Object, null); // new Mock<CronSystem>(mockStore.Object);
             }
 
             return _theCronSystem;

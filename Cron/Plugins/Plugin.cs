@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using Cron.Interface;
 
 namespace Cron.Plugins
 {
@@ -25,6 +26,9 @@ namespace Cron.Plugins
         private static int suspend = 0;
 
         protected static CronSystem System { get; private set; }
+        
+        protected static ICronLogger Logger { get; private set; }
+        
         public virtual string Name => GetType().Name;
         public virtual Version Version => GetType().Assembly.GetName().Version;
         public virtual string ConfigFile => Path.Combine(pluginsPath, GetType().Assembly.GetName().Name, "config.json");
@@ -93,6 +97,7 @@ namespace Cron.Plugins
 
         internal static void LoadPlugins(CronSystem system)
         {
+            Logger = system.GetLogger();
             System = system;
             if (!Directory.Exists(pluginsPath)) return;
             foreach (string filename in Directory.EnumerateFiles(pluginsPath, "*.dll", SearchOption.TopDirectoryOnly))

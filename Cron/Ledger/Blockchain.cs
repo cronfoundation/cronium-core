@@ -649,8 +649,19 @@ namespace Cron.Ledger
                     snapshot.HeaderHashIndex.GetAndChange().Hash = block.Hash;
                     snapshot.HeaderHashIndex.GetAndChange().Index = block.Index;
                 }
+
                 foreach (IPersistencePlugin plugin in Plugin.PersistencePlugins)
-                    plugin.OnPersist(snapshot, all_application_executed);
+                {
+                    try
+                    {
+                        plugin.OnPersist(snapshot, all_application_executed);
+                    }
+                    catch (Exception e)
+                    {
+                        system.GetLogger()?.Error(e, $"Error while OnPersis into plugin: {plugin.GetType()}");
+                    }
+                }
+
                 snapshot.Commit();
                 List<Exception> commitExceptions = null;
                 foreach (IPersistencePlugin plugin in Plugin.PersistencePlugins)
