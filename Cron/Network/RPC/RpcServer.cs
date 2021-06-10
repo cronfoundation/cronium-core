@@ -188,6 +188,17 @@ namespace Cron.Network.RPC
                     {
                         return GetBlockCount();
                     }
+                case "getlastblock":
+                    {
+                        var lastBlockIndex = Blockchain.Singleton.Height;
+                        var lastBlock = Blockchain.Singleton.Store.GetBlock(lastBlockIndex);
+                        var previousBlock = Blockchain.Singleton.Store.GetBlock(lastBlockIndex - 1);
+                        var delta = lastBlock.Timestamp - previousBlock.Timestamp;
+                        var result = new JObject();
+                        result["index"] = lastBlockIndex;
+                        result["delta"] = delta;
+                        return result;
+                    }
                 case "getblockhash":
                     {
                         uint height = uint.Parse(_params[0].AsString());
