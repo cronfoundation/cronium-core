@@ -136,9 +136,36 @@ namespace Cron.Plugins
         public static void Log(string source, LogLevel level, string message)
         {
             foreach (ILogPlugin plugin in Loggers)
+            {
                 plugin.Log(source, level, message);
+            }
+            InternalLog(source, level, message);
         }
 
+        private static void InternalLog(string source, LogLevel level, string message)
+        {
+            switch (level)
+            {
+                case LogLevel.Info:
+                    Logger.Info($"{source} : {message}");
+                    break;
+                case LogLevel.Debug:
+                    Logger.Debug($"{source} : {message}");
+                    break;
+                case LogLevel.Warning:
+                    Logger.Warning($"{source} : {message}");
+                    break;
+                case LogLevel.Error:
+                    Logger.Error($"{source} : {message}");
+                    break;
+                case LogLevel.Fatal:
+                    Logger.Error($"{source} : {message}");
+                    break;
+                default:
+                    break;
+            }
+        }
+        
         protected virtual bool OnMessage(object message) => false;
 
         protected static bool ResumeNodeStartup()
