@@ -73,7 +73,9 @@ namespace Cron.Network.P2P
             if (version == null)
             {
                 if (msg.Command != "version")
-                    throw new ProtocolViolationException();
+                {
+                    return;
+                }
                 OnVersionMessageReceived(msg.GetPayload<VersionPayload>());
                 return;
             }
