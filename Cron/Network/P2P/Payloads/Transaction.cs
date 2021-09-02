@@ -16,7 +16,7 @@ namespace Cron.Network.P2P.Payloads
 {
     public abstract class Transaction : IEquatable<Transaction>, IInventory
     {
-        public const int MaxTransactionSize = 1000000;
+        public const int MaxTransactionSize = 10000000;
         /// <summary>
         /// Maximum number of attributes that can be contained within a transaction
         /// </summary>

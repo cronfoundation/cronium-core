@@ -6,7 +6,6 @@
     <Description>Cron.VM</Description>
     <Version>1.0.0.0</Version>
     <Authors>The CronTracker Project</Authors>
-    <TargetFrameworks>netstandard1.6;net461</TargetFrameworks>
     <AssemblyName>Cron.VM</AssemblyName>
     <PackageId>Cron.VM</PackageId>
     <PackageTags>Cron.VM;CronVM</PackageTags>
@@ -15,7 +14,8 @@
     <RootNamespace>Cron.VM</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageVersion>1.0.0.0-dev</PackageVersion>
+    <PackageVersion>1.0.0.1</PackageVersion>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
